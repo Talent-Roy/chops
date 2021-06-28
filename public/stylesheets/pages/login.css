@@ -1,0 +1,31 @@
+.login {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.login div {
+  width: 500px;
+  margin: 40px auto;
+}
+
+.login div form {
+  padding: 2em;
+}
+
+.login div form h3 {
+  color: #fff;
+}
+
+.login div form button {
+  background-color: #fff;
+  color: #283593;
+  transition: ease-in-out 3ms;
+}
+
+.login div form button:hover {
+  background-color: #283593;
+  color: #fff;
+}

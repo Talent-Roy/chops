@@ -1,0 +1,61 @@
+link(rel="stylesheet", href="/stylesheets/components/header.css")
+nav 
+    div(class='nav-wrapper indigo darken-3')
+        a(href="/") 
+            img(src="/images/handyman-sketch.png", alt="logo", class='brand-logo logo')
+        a(href="#", data-target='mobile-demo', class='sidenav-trigger') 
+            i(class='material-icons' ) 🛠 
+        if user
+            ul(class='right hide-on-med-and-down')
+                li 
+                    a(href="/")  Home 
+                li 
+                    a(href="#")  How it works
+                li 
+                    a(href="#")   Contact
+                li.logout  
+                    a(href="")  Log out
+                li 
+                    a(href='#')=user.name.split(' ')[0]
+        else 
+            ul(class='right hide-on-med-and-down')
+                li 
+                    a(href="/")  Home 
+                li 
+                    a(href="#")  How it works 
+                li 
+                    a(href="#")   Contact
+                li  
+                    a(href="/login")  Login
+                li  
+                    a(href="/signup")  Signup 
+if user
+    ul(class='sidenav', id='mobile-demo')
+        li 
+            a(href="/")  Home 
+        li 
+            a(href="#")  How it works 
+        li 
+            a(href="#")   Contact
+        li.logout  
+            a(href="")  Log out
+        li 
+            a(href='#')= user.name.split(' ')[0]
+else 
+    ul(class='sidenav', id='mobile-demo')
+        li 
+            a(href="/")  Home 
+        li 
+            a(href="#")  How it works
+        li 
+            a(href="#")   Contact
+        li  
+            a(href="/login")  Login 
+        li  
+            a(href="/signup")  Signup 
+script(type='text/javascript'). 
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, {});
+    });
+

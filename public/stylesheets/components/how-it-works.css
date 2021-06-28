@@ -1,0 +1,26 @@
+.HIWs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.HIWs div h3 {
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+.HIWs div {
+  border-radius: 10px;
+  padding: 0 2em;
+  background-color: #283593;
+  color: #fff;
+  text-align: center;
+  transition: ease-in 0.3s;
+}
+
+.HIWs div:hover {
+  background-color: #fff;
+  color: #000;
+}

@@ -1,0 +1,40 @@
+.post-job-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.post-job-section div {
+  width: 500px;
+}
+
+.post-job-section .text {
+  padding: 0 2em;
+}
+
+.post-job-section div h3 {
+  padding: 0.5em;
+  font-weight: 800px;
+  font-size: 3em;
+  text-transform: capitalize;
+}
+
+.post-job-section div ul {
+  justify-content: center;
+  align-items: center;
+}
+
+.post-job-section div ul p {
+  font-size: 1.5em;
+  text-align: start;
+}
+
+.post-job-section div img {
+  width: 100%;
+}
+
+.post-job-section div p button a {
+  color: #fff;
+}

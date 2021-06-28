@@ -1,0 +1,31 @@
+.signup {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.signup div {
+  width: 500px;
+  margin: 40px auto;
+}
+
+.signup div h3 {
+  color: #fff;
+}
+
+.signup div form {
+  padding: 2em;
+}
+
+.signup div form button {
+  background-color: #fff;
+  color: #283593;
+  transition: ease-in-out 3ms;
+}
+
+.signup div form button:hover {
+  background-color: #283593;
+  color: #fff;
+}

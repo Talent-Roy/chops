@@ -1,0 +1,20 @@
+.footer {
+  padding: 2em 0;
+  background: #283593;
+  color: #fff !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .box1 ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer .box1 ul a {
+  color: #fff;
+}

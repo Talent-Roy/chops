@@ -1,0 +1,12 @@
+extends base
+block content
+    link(rel="stylesheet", href="/stylesheets/pages/login.css")
+    section.login.row.container
+        .col.s12.m6.l4 
+            form.form.card-panel.hoverable.indigo.darken-3
+                h3.center-align Login
+                input#email(type="text", name="email" placeholder='Email')
+                input#password(type="password", name="password" placeholder='Password')
+                p.center-align
+                    button.btn Submit
+    

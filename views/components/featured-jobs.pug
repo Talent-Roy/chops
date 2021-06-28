@@ -1,0 +1,20 @@
+link(rel="stylesheet", href="/stylesheets/components/featured-jobs.css")
+.row.services-section.container
+    h2.text-center featured jobs
+    each job in jobs
+        .col.box.s12.m6.l4
+            div(class='card hoverable' data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-out"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            data-aos-anchor-placement="top-center")
+                .card-image
+                    img(src=`/images/jobs/${job.coverImage}`, alt="service")
+                    h4.title= job.title
+                    p.card-content= job.description
+                    .card-action 
+                        a(href="#") Bid for job 
+                        a(href="#") View details
