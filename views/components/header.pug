@@ -14,7 +14,7 @@ nav
                 li 
                     a(href="#")   Contact
                 li.logout  
-                    a(href="")  Log out
+                    a(href="/")  Log out
                 li 
                     a(href='#')=user.name.split(' ')[0]
         else 
@@ -37,8 +37,8 @@ if user
             a(href="#")  How it works 
         li 
             a(href="#")   Contact
-        li.logout  
-            a(href="")  Log out
+        li.logout
+            a(href="/")  Log out
         li 
             a(href='#')= user.name.split(' ')[0]
 else 

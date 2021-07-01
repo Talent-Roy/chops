@@ -71,24 +71,14 @@ app.use(express.urlencoded({ extended: false }));
 //prevent parameter pollution
 app.use(
   hpp({
-    whitelist: [
-      'averageRating',
-      'ratingsQuantity',
-      'secretProduct',
-      'brand',
-      'category',
-      'price',
-      'secretHome',
-      'listedFor',
-      'state'
-    ]
+    whitelist: ['job', 'completed', 'budget']
   })
 );
 
 //test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log(req.cookies);
+  // console.log(req.cookies);
   next();
 });
 /**
