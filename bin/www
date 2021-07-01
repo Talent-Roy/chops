@@ -54,9 +54,9 @@ function normalizePort(val) {
 }
 
 /**connect to database */
-const DB = process.env.DATABASE;
+const DB = process.env.MONGODB_URI || process.env.DATABASE_PROD;
 
-//process.env.MONGODB_URI ||
+//
 
 mongoose
   .connect(DB, {
