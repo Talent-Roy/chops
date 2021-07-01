@@ -49,7 +49,7 @@ const sendErrorProduction = (err, res) => {
       //send generic message
       res.status(500).json({
         status: 'error',
-        message: 'something went wrong'
+        message: err
       });
   }
 };
