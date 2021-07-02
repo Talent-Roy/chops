@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
+  color: #fff;
 }
 
 .login div {
@@ -28,4 +29,8 @@
 .login div form button:hover {
   background-color: #283593;
   color: #fff;
+}
+
+.login div form input {
+  color: #fff !important;
 }
