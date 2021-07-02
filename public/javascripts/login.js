@@ -4,7 +4,7 @@ import { showAlert } from './alert';
 
 export const signup = async (name, email, password, confirmPassword) => {
   const urlDev = 'http://localhost:8080/api/v1/users/signup';
-  const urlProd = 'http://handyman.herokuapp.com/users/signup';
+  const urlProd = 'http://handyman.herokuapp.com/api/v1/users/signup';
   try {
     const res = await axios({
       method: 'POST',

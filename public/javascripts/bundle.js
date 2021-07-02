@@ -8508,7 +8508,7 @@ var signup = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             urlDev = 'http://localhost:8080/api/v1/users/signup';
-            urlProd = 'http://handyman.herokuapp.com/users/signup';
+            urlProd = 'http://handyman.herokuapp.com/api/v1/users/signup';
             _context.prev = 2;
             _context.next = 5;
             return (0, _axios.default)({
