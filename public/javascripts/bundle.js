@@ -8502,16 +8502,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var signup = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(name, email, password, confirmPassword) {
-    var res;
+    var urlDev, urlProd, res;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            urlDev = 'http://localhost:8080/api/v1/users/signup';
+            urlProd = 'http://handyman.herokuapp.com/users/signup';
+            _context.prev = 2;
+            _context.next = 5;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:8080/api/v1/users/signup',
+              url: urlProd,
               data: {
                 name: name,
                 email: email,
@@ -8520,7 +8522,7 @@ var signup = /*#__PURE__*/function () {
               }
             });
 
-          case 3:
+          case 5:
             res = _context.sent;
 
             if (res.data.status === 'success') {
@@ -8530,20 +8532,20 @@ var signup = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context.next = 10;
+            _context.next = 12;
             break;
 
-          case 7:
-            _context.prev = 7;
-            _context.t0 = _context["catch"](0);
+          case 9:
+            _context.prev = 9;
+            _context.t0 = _context["catch"](2);
             (0, _alert.showAlert)('error', _context.t0.response.data.message);
 
-          case 10:
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[2, 9]]);
   }));
 
   return function signup(_x, _x2, _x3, _x4) {
