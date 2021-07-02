@@ -1,15 +1,12 @@
 /*eslint-disable*/
 import '@babel/polyfill';
 import { login, signup, logout } from './login';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-AOS.init();
 
 //DOM ELEMENTS
 const loginForm = document.querySelector('.form');
 const signupForm = document.querySelector('.signup');
-const logOutBtn = document.querySelectorAll('.logout');
+const logOutBtn = document.querySelector('a.logout');
+const logOutLg = document.querySelector('a.signout');
 
 if (signupForm)
   signupForm.addEventListener('submit', e => {
@@ -30,3 +27,5 @@ if (loginForm)
   });
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
+
+if (logOutLg) logOutLg.addEventListener('click', logout);

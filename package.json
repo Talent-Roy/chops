@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "prod": "NODE_ENV=production nodemon ./bin/www",
     "dev": "nodemon ./bin/www",
     "debug": "ndb ./bin/www",
     "watch:js": "parcel watch ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js",

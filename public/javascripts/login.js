@@ -54,7 +54,7 @@ export const logout = async () => {
       method: 'GET',
       url: 'http://localhost:8080/api/v1/users/logout'
     });
-    if ((res.data.status = 'success')) location.href = location.href;
+    if ((res.data.status = 'success')) location.replace('/');
   } catch (err) {
     showAlert('error', 'Error logging out! Try again.');
   }

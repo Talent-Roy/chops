@@ -9,3 +9,7 @@
   font-size: 2.5em;
   color: #fff;
 }
+
+.navbar ul li {
+  cursor: pointer !important;
+}

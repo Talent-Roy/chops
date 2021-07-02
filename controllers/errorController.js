@@ -45,12 +45,15 @@ const sendErrorProduction = (err, res) => {
     error and details shouldn't be leaked to the client*/
   } else {
     //log error
-    console.error('ERROR', err),
-      //send generic message
-      res.status(500).json({
-        status: 'error',
-        message: err.stack
-      });
+    // eslint-disable-next-line no-unused-expressions
+    // eslint-disable-next-line no-console
+    console.error('ERROR', err);
+    //send generic message
+    res.status(500).json({
+      status: 'error',
+      message: 'something went wrong'
+    });
+    console.log(err);
   }
 };
 

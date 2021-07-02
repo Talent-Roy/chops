@@ -13,14 +13,14 @@ exports.alerts = (req, res, next) => {
 };
 
 exports.getHome = catchAsync(async (req, res, next) => {
-  // 1) Get job data from collection
-  const jobs = await Job.find();
+  // // 1) Get job data from collection
+  // const jobs = await Job.find();
 
   // 2) Build template
   // 3) Render that template using job data from 1)
   res.status(200).render('home', {
-    title: 'All Jobs',
-    jobs
+    title: 'All Jobs'
+    // jobs
   });
 });
 

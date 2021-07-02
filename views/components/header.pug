@@ -1,5 +1,5 @@
 link(rel="stylesheet", href="/stylesheets/components/header.css")
-nav 
+nav.navbar
     div(class='nav-wrapper indigo darken-3')
         a(href="/") 
             img(src="/images/handyman-sketch.png", alt="logo", class='brand-logo logo')
@@ -13,8 +13,8 @@ nav
                     a(href="#")  How it works
                 li 
                     a(href="#")   Contact
-                li.logout  
-                    a(href="/")  Log out
+                li
+                    a(href='' class='signout') Log out
                 li 
                     a(href='#')=user.name.split(' ')[0]
         else 
@@ -37,8 +37,8 @@ if user
             a(href="#")  How it works 
         li 
             a(href="#")   Contact
-        li.logout
-            a(href="/")  Log out
+        li
+            a(href='' class='logout')  Log out
         li 
             a(href='#')= user.name.split(' ')[0]
 else 
