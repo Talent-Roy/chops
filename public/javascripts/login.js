@@ -30,7 +30,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:8080/api/v1/users/login',
+      url: 'http://handymanng/api/v1/users/login',
       data: {
         email,
         password
@@ -52,7 +52,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://localhost:8080/api/v1/users/logout'
+      url: 'http://handymanng/api/v1/users/logout'
     });
     if ((res.data.status = 'success')) location.replace('/');
   } catch (err) {
