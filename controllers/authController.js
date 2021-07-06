@@ -43,7 +43,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     confirmPassword: req.body.confirmPassword
   });
 
-  createSendToken(newUser, 201, res);
+  createSendToken(newUser, 201, req, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -62,7 +62,7 @@ exports.login = catchAsync(async (req, res, next) => {
   }
 
   /**3) if everything is okay, send token to client*/
-  createSendToken(user, 200, res);
+  createSendToken(user, 200, req, res);
 });
 
 exports.logout = (req, res) => {
@@ -219,7 +219,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
   //3) update changedPasswordAt property for the user
 
   //4)log the user in and send jwt
-  createSendToken(user, 200, res);
+  createSendToken(user, 200, req, res);
 });
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
@@ -236,5 +236,5 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   user.confirmPassword = req.body.confirmPassword;
   await user.save();
   //4) log user in and send jwt
-  createSendToken(user, 200, res);
+  createSendToken(user, 200, req, res);
 });
