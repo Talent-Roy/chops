@@ -8511,7 +8511,7 @@ var signup = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: '/api/v1/users/signup',
+              url: '/users/signup',
               data: {
                 name: name,
                 email: email,
@@ -8564,7 +8564,7 @@ var login = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: '/api/v1/users/login',
+              url: '/users/login',
               data: {
                 email: email,
                 password: password
@@ -8615,7 +8615,7 @@ var logout = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'GET',
-              url: '/api/v1/users/logout'
+              url: '/users/logout'
             });
 
           case 3:
@@ -8961,7 +8961,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57496" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61551" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
