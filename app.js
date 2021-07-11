@@ -18,7 +18,7 @@ const app = express();
 require('dotenv').config();
 
 /**connect to database */
-const DB = process.env.MONGODB_URI || process.env.DATABASE;
+const DB = process.env.MONGODB_URI || process.env.DATABASE_PROD;
 
 mongoose
   .connect(DB, {
