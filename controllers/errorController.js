@@ -49,9 +49,11 @@ const sendErrorProduction = (err, res) => {
     // eslint-disable-next-line no-console
     console.error('ERROR', err);
     //send generic message
-    res.status(500).json({
-      status: 'error',
-      message: 'something went wrong'
+    res.status(err.statusCode).json({
+      status: err.status,
+      error: err,
+      message: err.message,
+      stack: err.stack
     });
     console.log(err);
   }
