@@ -6,6 +6,7 @@
  */
 const http = require('http');
 const debug = require('debug')('ngolo-homes:server');
+const mongoose = require('mongoose');
 const app = require('../app');
 
 require('dotenv').config();
@@ -51,6 +52,21 @@ function normalizePort(val) {
 
   return false;
 }
+
+/**connect to database */
+const DB = process.env.MONGODB_URI || process.env.DATABASE_PROD;
+
+//
+
+mongoose
+  .connect(DB, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .catch(err => console.log(err))
+  .then(console.log('connected to database'));
 
 /**
  * Event listener for HTTP server "error" event.
