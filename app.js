@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const mongoose = require('mongoose');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -15,6 +16,21 @@ const globalErrorHandler = require('./controllers/errorController');
 const app = express();
 
 require('dotenv').config();
+
+/**connect to database */
+const DB = process.env.MONGODB_URI || process.env.DATABASE_PROD;
+
+//
+
+mongoose
+  .connect(DB, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .catch(err => console.log(err))
+  .then(console.log('connected to database'));
 
 app.enable('trust proxy');
 
