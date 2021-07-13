@@ -4,7 +4,7 @@ import { login, signup, logout } from './login';
 
 //DOM ELEMENTS
 const loginForm = document.querySelector('.form');
-// const signupForm = document.querySelector('.signup');
+const signupForm = document.querySelector('.signup');
 const logOutBtn = document.querySelector('a.logout');
 const logOutLg = document.querySelector('a.signout');
 
@@ -24,7 +24,6 @@ if (loginForm)
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     login(email, password);
-    console.log(email, password);
   });
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
