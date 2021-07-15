@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/server.js",
-    "dev": "nodemon ./bin/server.js",
-    "start:prod": "NODE_ENV=production nodemon ./bin/server.js",
-    "debug": "ndb server.js",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "start:prod": "NODE_ENV=production nodemon ./bin/www",
+    "debug": "ndb www",
     "watch:js": "parcel watch ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js",
     "build:js": "parcel build ./public/javascripts/index.js --out-dir ./public/javascripts --out-file bundle.js"
   },
