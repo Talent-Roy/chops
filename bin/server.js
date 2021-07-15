@@ -7,10 +7,10 @@ process.on('uncaughtException', err => {
   process.exit(1);
 });
 
-dotenv.config({ path: './config.env' });
-const app = require('./app');
+dotenv.config({ path: 'config.env' });
+const app = require('../app');
 
-const DB = process.env.MONGODB_URI || process.env.DATABASE_PROD;
+const DB = process.env.DATABASE;
 
 mongoose
   .connect(DB, {
