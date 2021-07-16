@@ -14,6 +14,8 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
+require('dotenv').config({ path: 'config.env' });
+
 app.enable('trust proxy');
 
 app.set('view engine', 'pug');
