@@ -8,12 +8,12 @@ router.use(viewsController.alerts);
 
 router.get('/', authController.isLoggedIn, viewsController.getHome);
 
-router.get('/tour/:slug', authController.isLoggedIn, viewsController.getJob);
+router.get('/job/:slug', authController.isLoggedIn, viewsController.getJob);
 router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);
 router.get('/signup', authController.isLoggedIn, viewsController.getSignupForm);
 router.get('/me', authController.protect, viewsController.getAccount);
 
-router.get('/my-tours', authController.protect, viewsController.getMyJobs);
+router.get('/my-jobs', authController.protect, viewsController.getMyJobs);
 
 router.post(
   '/submit-user-data',

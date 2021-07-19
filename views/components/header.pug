@@ -16,7 +16,7 @@ nav.navbar
                 li
                     a(href='' class='signout') Log out
                 li 
-                    a(href='#')=user.name.split(' ')[0]
+                    a(href='/me')=user.name.split(' ')[0]
         else 
             ul(class='right hide-on-med-and-down')
                 li 
@@ -40,7 +40,7 @@ if user
         li
             a(href='' class='logout')  Log out
         li 
-            a(href='#')= user.name.split(' ')[0]
+            a(href='/me')= user.name.split(' ')[0]
 else 
     ul(class='sidenav', id='mobile-demo')
         li 
