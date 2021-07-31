@@ -1,0 +1,26 @@
+.reviews {
+  width: 100%;
+  height: auto;
+}
+
+.reviews .col {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.reviews .col span {
+  font-size: 1.6em;
+  display: flex;
+  align-self: flex-end;
+}
+
+.reviews .col span i {
+  font-size: 1em;
+  color: gold;
+}
+
+.reviews .col i {
+  font-size: 1.5em;
+  text-align: end;
+}

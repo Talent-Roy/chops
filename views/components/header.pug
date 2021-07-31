@@ -1,8 +1,8 @@
 link(rel="stylesheet", href="/stylesheets/components/header.css")
 nav.navbar
-    div(class='nav-wrapper indigo darken-3')
+    div(class='nav-wrapper')
         a(href="/") 
-            img(src="/images/handyman-sketch.png", alt="logo", class='brand-logo logo')
+            img(src="/images/logo.jpg", alt="logo", class='brand-logo logo')
         a(href="#", data-target='mobile-demo', class='sidenav-trigger') 
             i(class='material-icons' ) 🛠 
         if user
@@ -14,7 +14,7 @@ nav.navbar
                 li 
                     a(href="#")   Contact
                 li
-                    a(href='' class='signout') Log out
+                    a(href='' class='logout') Log out
                 li 
                     a(href='/me')=user.name.split(' ')[0]
         else 

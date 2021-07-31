@@ -3,24 +3,47 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 2em;
+  background: aliceblue;
 }
 
-.HIWs div h3 {
-  padding: 0.5em 1em;
-  text-align: center;
+.HIWs .row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1em;
 }
 
-.HIWs div {
-  border-radius: 10px;
-  padding: 0 2em;
-  background-color: #283593;
+.HIWs .row .col {
+  background: #dc0a0a;
+  border-radius: 6px;
+}
+
+@media only screen and (min-width: 768px) {
+  .HIWs .row .col {
+    padding: 2em;
+  }
+
+  .HIWs .row .col p {
+    padding: 0 1.5em;
+    margin: 0;
+  }
+}
+
+.HIWs .row .col i {
+  font-size: 5em;
+  display: flex;
+  justify-content: center;
+  font-weight: 100;
+  color: aliceblue !important;
+  padding: 0.3em 0;
+}
+
+.HIWs .row .col p {
+  font-size: 1.5em;
+  line-height: 1.5em;
   color: #fff;
-  text-align: center;
-  transition: ease-in 0.3s;
-}
-
-.HIWs div:hover {
-  background-color: #fff;
-  color: #000;
+  text-align: start;
+  padding: 0 1.3em;
+  font-weight: 100;
 }

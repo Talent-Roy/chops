@@ -10,6 +10,10 @@
   color: #fff;
 }
 
+.nav-wrapper {
+  background: #dc0a0a;
+}
+
 .navbar ul li {
   cursor: pointer !important;
 }

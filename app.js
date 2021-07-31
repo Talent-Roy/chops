@@ -83,7 +83,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/views'));
 app.use('/api/v1/users', require('./routes/users'));
 app.use('/api/v1/jobs', require('./routes/jobs'));
-app.use('/api/v1/job-bids', require('./routes/jobbids'));
+app.use('/api/v1/job-review', require('./routes/jobReviews'));
 app.use('/api/v1/neighbourhoods', require('./routes/neighbourhoods'));
 app.use('/api/v1/neighbourhoodreview', require('./routes/neighbourhoodReview'));
 

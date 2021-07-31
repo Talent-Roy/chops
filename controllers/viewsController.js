@@ -69,7 +69,7 @@ exports.getMyJobs = catchAsync(async (req, res, next) => {
   const jobIDs = bookings.map(el => el.job);
   const jobs = await Job.find({ _id: { $in: jobIDs } });
 
-  res.status(200).render('overview', {
+  res.status(200).render('my-jobs', {
     title: 'My jobs',
     jobs
   });

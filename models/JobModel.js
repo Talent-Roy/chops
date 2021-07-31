@@ -1,49 +1,38 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const validator = require('validator');
 
 const JobSchema = new mongoose.Schema(
   {
     slug: String,
-    title: {
+    address: {
       type: String,
-      required: [true, 'A job must have a title']
-    },
-    coverImage: {
-      type: String,
-      required: [true, 'a job must have a cover image']
-    },
-    category: {
-      type: String,
-      required: [true, 'What type of job is this?']
+      required: [true, 'A job must have an excution address']
     },
     description: {
       type: String,
       required: [true, 'Please describe this job.'],
       trim: true
     },
-    address: {
+    image: {
       type: String,
-      required: [true, 'A job must have an excution address']
-    },
-    budget: {
-      type: Number,
-      required: [true, 'A job must have a budget']
+      required: [true, 'a job must have a cover image']
     },
     images: [String],
-    beginDate: {
+    jobDate: {
       type: Date,
       required: [true, 'A job must have a beginning date']
     },
-    finishDate: {
-      type: Date
-    },
-    jobDuration: {
+    email: {
       type: String,
-      required: [true, ' A job must have a an expected duration']
+      required: [true, 'please provide an email address'],
+      unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, 'Please provide a valid email']
     },
-    secretJob: {
-      type: Boolean,
-      default: false
+    phoneNum: {
+      type: String,
+      required: false
     },
     completed: {
       type: Boolean,
@@ -82,7 +71,7 @@ JobSchema.index({ location: '2dsphere' });
  * Virtual populate
  */
 JobSchema.virtual('bids', {
-  ref: 'JobBid',
+  ref: 'JobReview',
   foreignField: 'Job',
   localField: '_id'
 });

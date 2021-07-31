@@ -14,9 +14,9 @@ const {
   getDistances
 } = require('../controllers/jobController');
 
-const jobbidsRouter = require('./jobbids');
+const jobReviewRouter = require('./jobReviews');
 
-router.use('/:jobId/reviews', jobbidsRouter);
+router.use('/:jobId/reviews', jobReviewRouter);
 router.route('/top-jobs').get(aliasTopJobs, getAllJobs);
 router.route('/job-stats').get(getJobStats);
 

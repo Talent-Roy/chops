@@ -1,0 +1,12 @@
+.nav-wrapper a i {
+  font-size: 2.5em;
+  color: #fff;
+}
+
+.nav-wrapper {
+  background: #b92e34;
+}
+
+.navbar ul li {
+  cursor: pointer !important;
+}

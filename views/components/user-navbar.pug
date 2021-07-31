@@ -1,0 +1,23 @@
+link(rel="stylesheet", href="/stylesheets/components/user-navbar.css")
+nav.navbar
+    div(class='nav-wrapper user-navbar')
+        a(href="#", data-target='user-navbar', class='sidenav-trigger user-options-trigger') 
+            span(class='material-icons' ) 💼 
+        ul(class='right hide-on-med-and-down')
+            li 
+                a(href="#settings")  Settings
+            li 
+                a(href="#bookings")  My Bookings
+            li 
+                a(href="#reviews")   My Reviews
+            li 
+                a(href="#billing")   Billing
+    ul(class='sidenav user-options', id='user-navbar')
+        li 
+            a(href="#settings")  Settings
+        li 
+            a(href="#bookings")  My Bookings
+        li 
+            a(href="#reviews")   My Reviews
+        li 
+            a(href="#billing")   Billing

@@ -1,0 +1,24 @@
+.user-header {
+  background-color: aliceblue !important;
+}
+
+nav div .user-options-trigger {
+  float: right;
+}
+
+nav .sidenav {
+  right: 0 !important;
+}
+
+.user-navbar a span {
+  font-size: 2.5em;
+  color: #fff;
+}
+
+.user-navbar {
+  background: #5a5959;
+}
+
+.navbar ul li {
+  cursor: pointer !important;
+}

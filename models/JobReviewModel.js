@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Job = require('./JobModel');
 
-const JobBidSchema = new mongoose.Schema(
+const jobReviewSchema = new mongoose.Schema(
   {
-    bid: {
+    review: {
       type: String,
       trim: true,
       required: [
@@ -18,12 +18,12 @@ const JobBidSchema = new mongoose.Schema(
     Job: {
       type: mongoose.Schema.ObjectId,
       ref: 'Job',
-      required: [true, 'A Job bid must be of a list Job!']
+      required: [true, 'A Job review must be of a list Job!']
     },
     user: {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
-      required: [true, ' A bid must belong to a user']
+      required: [true, ' A review must belong to a user']
     }
   },
   {
@@ -32,13 +32,13 @@ const JobBidSchema = new mongoose.Schema(
   }
 );
 
-//prevent duplicate bids from the same user
-JobBidSchema.index({ Job: 1, user: 1 }, { unique: true });
+//prevent duplicate reviews from the same user
+jobReviewSchema.index({ Job: 1, user: 1 }, { unique: true });
 
 /**
  * Query middlewares
  */
-JobBidSchema.pre(/^find/, function(next) {
+jobReviewSchema.pre(/^find/, function(next) {
   // this.populate({
   //   path: 'Job',
   //   select: '-__v -createdAt'
@@ -50,10 +50,10 @@ JobBidSchema.pre(/^find/, function(next) {
   next();
 });
 
-JobBidSchema.statics.calcAverageRatings = async function(jobId) {
+jobReviewSchema.statics.calcAverageRatings = async function(jobReview) {
   const stats = await this.aggregate([
     {
-      $match: { job: jobId }
+      $match: { job: jobReview }
     },
     {
       $group: {
@@ -65,36 +65,36 @@ JobBidSchema.statics.calcAverageRatings = async function(jobId) {
   ]);
 
   if (stats.length > 0) {
-    await Job.findByIdAndUpdate(jobId, {
+    await Job.findByIdAndUpdate(jobReview, {
       ratingsQuantity: stats[0].numRating,
       averageRating: stats[0].avgRating
     });
   } else {
-    await Job.findByIdAndUpdate(jobId, {
+    await Job.findByIdAndUpdate(jobReview, {
       ratingsQuantity: 0,
       averageRating: 4.5
     });
   }
 };
 
-JobBidSchema.post('save', function() {
+jobReviewSchema.post('save', function() {
   this.constructor.calcAverageRatings(this.job);
 });
 
-JobBidSchema.pre(/^findOneAnd/, async function(next) {
+jobReviewSchema.pre(/^findOneAnd/, async function(next) {
   /**we execute this querry to get access to the current document and 
  store it on the query variable (this) so we can use it in the post 
  middleware which is where we do the actuall calculation*/
-  this.hr = await this.findOne();
+  this.jr = await this.findOne();
   next();
 });
 
-JobBidSchema.post(/^findOneAnd/, async function() {
+jobReviewSchema.post(/^findOneAnd/, async function() {
   /**awaiting this.findOne  in the post middleware will not work here without the
   above code because the query would have already executed*/
-  await this.hr.constructor.calcAverageRatings(this.hr.job);
+  await this.jr.constructor.calcAverageRatings(this.jr.job);
 });
 
-const JobBid = mongoose.model('JobBid', JobBidSchema);
+const jobReview = mongoose.model('jobReview', jobReviewSchema);
 
-module.exports = JobBid;
+module.exports = jobReview;

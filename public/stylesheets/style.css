@@ -1,4 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Oxygen&display=swap');
+
+:root {
+  --primary: #b92e34;
+  --secondary: #000;
+  --lightGrey: rgb(230, 230, 230);
+  --midGrey: #cacaca;
+  --darkGrey: #272727;
+  --danger: #ff3d3d;
+  --success: #88e75bdd;
+  --blue: #657dc9;
+  --font-primary: 'Raleway', sans-serif;
+  --font-system: system-ui; /* postcssPresetEnv */
+  --borderRadius: 3px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -40,4 +55,13 @@ p {
 }
 .alert--error {
   background-color: #eb4d4b;
+}
+
+.heading {
+  text-align: center !important;
+  padding: 5px auto;
+  font-size: 3em;
+  color: var(--secondary);
+  text-transform: capitalize;
+  font-weight: 800;
 }

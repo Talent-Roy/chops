@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  color: #fff;
+  color: #000 !important;
 }
 
 .signup div {
@@ -12,25 +12,27 @@
   margin: 40px auto;
 }
 
-.signup div h3 {
-  color: #fff;
-}
-
 .signup div form {
   padding: 2em;
+  background: #b1bdbe;
+}
+
+.signup div form h3 {
+  color: rgb(43, 41, 41);
 }
 
 .signup div form button {
-  background-color: #fff;
-  color: #283593;
+  background-color: #b41616;
+  color: #fff;
   transition: ease-in-out 3ms;
 }
 
 .signup div form button:hover {
-  background-color: #283593;
+  background-color: #b92727;
   color: #fff;
 }
 
 .signup div form input {
-  color: #fff;
+  color: #000 !important;
+  padding: 2em 0;
 }

@@ -105,6 +105,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
   }
   req.user = decodedUser;
+  res.locals.user = decodedUser;
   next();
 });
 
