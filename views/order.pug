@@ -1,0 +1,33 @@
+extends base
+
+block content 
+    link(rel="stylesheet", href="/stylesheets/pages/orders.css")
+    .container.all_orders
+        h2.has-text-centered #{title}
+        each orderedProduct in order
+            .container.order_box
+                table
+                    thead
+                    tbody
+                        td 
+                            b Items:
+                        each item in orderedProduct.itemName 
+                            td=item
+                    tbody
+                        td 
+                            b Quantity:
+                        each qty in orderedProduct.itemQty 
+                            td=qty
+                    tbody
+                        td 
+                            b price:
+                        each price in orderedProduct.itemPrice
+                            td=price
+                    tbody
+                        td 
+                            b total qty:
+                            td=order.totalQty
+                    tbody
+                    td 
+                        b total price:
+                        td=order.price

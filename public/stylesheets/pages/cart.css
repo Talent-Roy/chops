@@ -1,0 +1,23 @@
+.product {
+  margin: 2em auto;
+}
+
+.product img {
+  height: 150px;
+  width: 150px !important;
+  border-radius: 30%;
+  padding: 1em;
+  object-fit: cover;
+}
+
+.product p {
+  font-size: 1.2em;
+}
+
+.product .add,
+.remove_1 {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  font-weight: 500;
+}

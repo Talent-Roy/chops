@@ -1,20 +1,22 @@
 .footer {
-  padding: 2em 0;
-  background: #dc0a0a;
+  /* background-image: linear-gradient(45deg, #080130, #18052e); */
   color: #fff !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
 }
 
 .footer .box1 ul {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .footer .box1 ul a {
   color: #fff;
+  padding: 1em 2em;
 }

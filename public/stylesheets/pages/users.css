@@ -1,0 +1,31 @@
+.users {
+  width: 100%;
+}
+
+.users h2 {
+  font-size: 1.8em;
+  margin: 1em auto;
+  text-transform: capitalize;
+}
+
+/* .users .user_box {
+  min-width: 400px;
+} */
+
+.card-image {
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.card-image div {
+  width: 150px;
+  padding: 0.5em;
+}
+
+.card-image div img {
+  /* width: 150px;
+  height: 150px; */
+  border-radius: 10px;
+}

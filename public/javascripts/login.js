@@ -2,7 +2,13 @@
 import axios from 'axios';
 import { showAlert } from './alert';
 
-export const signup = async (name, email, password, confirmPassword) => {
+export const signup = async (
+  name,
+  email,
+  password,
+  confirmPassword,
+  phoneNum
+) => {
   try {
     const res = await axios({
       method: 'POST',
@@ -11,12 +17,13 @@ export const signup = async (name, email, password, confirmPassword) => {
         name,
         email,
         password,
-        confirmPassword
+        confirmPassword,
+        phoneNum
       }
     });
 
     if (res.data.status === 'success') {
-      showAlert('success', 'Welcome to handymanng, you are now logged in!');
+      showAlert('success', 'Welcome to Choperholics, you are now logged in!');
       window.setTimeout(() => {
         location.assign('/');
       }, 1500);
@@ -42,7 +49,7 @@ export const login = async (email, password) => {
       window.setTimeout(() => {
         location.assign('/');
       }, 1500);
-      console.log(res.data);
+      // console.log(res.data);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
@@ -55,9 +62,23 @@ export const logout = async () => {
       method: 'GET',
       url: '/api/v1/users/logout'
     });
-    if ((res.data.status = 'success')) location.reload();
+    if ((res.data.status = 'success')) location.replace('/');
   } catch (err) {
-    console.log(err.response);
+    // console.log(err.response);
     showAlert('error', 'Error logging out! Try again.');
+  }
+};
+
+export const signout = async () => {
+  try {
+    const res = await axios({
+      method: 'GET',
+      url: '/api/v1/users/logout'
+    });
+    if ((res.data.status = 'success')) location.replace('/');
+    // console.log('route hit');
+  } catch (err) {
+    // console.log(err.response);
+    showAlert('error', 'Error logging out! Please Try again.');
   }
 };

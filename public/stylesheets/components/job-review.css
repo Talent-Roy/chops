@@ -1,0 +1,42 @@
+.reviews_card {
+  padding: 2em;
+  width: 350px;
+}
+
+.reviews_avatar {
+  padding: 1em;
+}
+
+.reviews_avatar-img {
+  height: 200px !important;
+  /* width: 200px !important; */
+}
+
+.reviews_user {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.reviews_content {
+  padding: 0 1em;
+}
+
+.reviews__rating {
+  margin-top: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2em;
+}
+.reviews__star {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1px;
+  margin-top: 0.5em;
+}
+.reviews__star--active {
+  fill: #c55555;
+}
+.reviews__star--inactive {
+  fill: #bbb;
+}

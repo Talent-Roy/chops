@@ -1,0 +1,15 @@
+link(rel="stylesheet", href="/stylesheets/components/top-products.css")
+section.container.top_products
+    h1.has-text-centered Top picks
+    .columns 
+        each product in topProducts
+            .column
+                a.hoverable#products(href=`/product/${product.slug}`) 
+                    .card.hoverable
+                        div.tp_card_box
+                            img(src=`/img/products/${product.images[2]}`, alt="....").z-depth-1
+                        div.tp_card_box
+                            p.p-2=product.name
+                            div.is-flex
+                                p.p-2.price=product.price
+                                p.p-2.discount=product.priceDiscount

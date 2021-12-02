@@ -1,0 +1,23 @@
+extends base
+
+block content 
+    link(rel="stylesheet", href="/stylesheets/pages/orders.css")
+    .container.all_orders
+        if user.role === 'user'
+            h2.has-text-centered Your Orders
+        if user.role === 'admin'
+            h2.has-text-centered All Orders
+        .columns
+            each order in orders
+                a.hoverable(href=`/order/${order.id}`) 
+                    .column 
+                        .card.box 
+                            .is-flex
+                                p Orderer: 
+                                p.px-3=order.name 
+                            .is-flex 
+                                p Delivery address: 
+                                p.px-3=order.address 
+                            .is-flex 
+                                p Ordered on: 
+                                p.px-3=order.createdAt

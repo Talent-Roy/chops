@@ -1,0 +1,13 @@
+.review {
+  height: 100%;
+}
+
+.review form {
+  padding: 2em;
+  color: #000;
+}
+
+.review form textarea {
+  height: 100px;
+  padding: 1em;
+}

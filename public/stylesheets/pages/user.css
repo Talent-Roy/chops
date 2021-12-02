@@ -1,0 +1,23 @@
+.user {
+  margin-top: 1em;
+}
+
+.user_photo {
+  width: 400px;
+  height: 400px;
+  margin-top: 1em;
+}
+
+.user_photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.user_details {
+  width: 400px;
+  height: 400px;
+  margin-bottom: 2em;
+  margin-top: 1em;
+}

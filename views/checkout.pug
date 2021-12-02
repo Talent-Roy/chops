@@ -1,0 +1,82 @@
+extends base
+
+block content 
+    link(rel="stylesheet", href="/stylesheets/pages/checkout.css")
+    .row.checkout
+        .s12.m6.l6
+            form.checkout-form.checkout_form#checkoutForm
+                h4.center-align Your Order
+                each product in products 
+                    p.itemName.orders= product.item.name
+                        span.itemQty.px-3=product.qty
+                        span.px-3=product.price
+                    input#itemName(type="hidden", class='item-name' name="itemName" value=`${product.item.name}`)
+                    input#itemQty(type="hidden", class ='item-qty' name="itemQty" value=`${product.qty}`)
+                    input#itemPrice(type="hidden", class ='item-price' name="itemPrice" value=`${product.price}`)
+                p Total quantiy 
+                    strong= qty 
+                p Total price: 
+                    strong= total
+                h4.center-align Your Details
+                label(for="name") your name
+                input#name(type="text", name="name" value=`${user.name}`)
+                label(for="name") your email
+                input#email(type="text", name="email", value=`${user.email}`)
+                label(for="name") your address
+                input#address(type="text", name="address" required='true' placeholder='please fill in the billing address')
+                label(for="name") your contact
+                input#phoneNum(type="text", name="phoneNum" value=`${user.phoneNum}`)
+                input#totalQty(type="hidden", name="totalQty" value=`${qty}`)
+                input.price#amount(type="hidden", name="amount" value=`${total}`)
+                input#userId(type="hidden", name="userId", value=`${user.id}`)
+                div.center-align
+                    button.center-align Process payment
+    script(type='text/javascript').
+            /* To Disable Inspect Element */
+        $(document).ready(function () {
+            $('label').css("color", "black")
+            $('input[ placeholder = "please fill in the billing address"]').css('color', 'black')
+            $('.price').css('display', 'none')
+        });
+        
+        $(document).bind("contextmenu",function(e) {
+            e.preventDefault();
+        });
+
+        $(document).keydown(function(e){
+            if(e.which === 123){
+                return false;
+            }
+        });  
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) {
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'F'.charCodeAt(0)){
+            return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'E'.charCodeAt(0)){
+            return false;
+            }
+            }     

@@ -1,8 +1,6 @@
 link(rel="stylesheet", href="/stylesheets/components/header.css")
-nav.navbar
-    div(class='nav-wrapper')
-        a(href="/") 
-            img(src="/images/logo.jpg", alt="logo", class='brand-logo logo')
+nav.navbar.has-background-danger
+    div(class='nav-wrapper').has-background-danger
         a(href="#", data-target='mobile-demo', class='sidenav-trigger') 
             i(class='material-icons' ) 🛠 
         if user
@@ -10,9 +8,25 @@ nav.navbar
                 li 
                     a(href="/")  Home 
                 li 
-                    a(href="#")  How it works
+                    a(href='/products') Store
                 li 
                     a(href="#")   Contact
+                li 
+                    a(href="/cart") 
+                        span#cart 
+                            i.fa.fa-shopping-basket.has-text-white
+                        if session.cart
+                            span#cart-count= session.cart.totalQty
+                - if(user.role === 'user')
+                    li 
+                        a(href="/my-orders")   my orders
+                - if(user.role === 'admin')
+                    li 
+                        a(href="/createproduct")   create product
+                    //- li 
+                    //-     a(href="/reviews")   Manage reviews
+                    li 
+                        a(href="/users")   Manage users
                 li
                     a(href='' class='logout') Log out
                 li 
@@ -22,9 +36,15 @@ nav.navbar
                 li 
                     a(href="/")  Home 
                 li 
-                    a(href="#")  How it works 
+                    a(href='/products') store
                 li 
                     a(href="#")   Contact
+                li 
+                    a(href="/cart") 
+                        span#cart 
+                            i.fa.fa-shopping-basket.has-text-white
+                        if session.cart
+                            span#cart-count= session.cart.totalQty
                 li  
                     a(href="/login")  Login
                 li  
@@ -32,23 +52,46 @@ nav.navbar
 if user
     ul(class='sidenav', id='mobile-demo')
         li 
+            div.header_img_box.hoverable
+                a(href='/me')
+                    img(src=`/img/user/${user.photo}`, alt='User photo')
+                    p= user.name.split(' ')[0]
+        li 
             a(href="/")  Home 
         li 
-            a(href="#")  How it works 
+            a(href='/products') store
         li 
             a(href="#")   Contact
-        li
-            a(href='' class='logout')  Log out
         li 
-            a(href='/me')= user.name.split(' ')[0]
+            a(href="/cart") 
+                span#cart 
+                    i.fa.fa-shopping-basket.has-text-danger
+                if session.cart
+                    span#cart-count= session.cart.totalQty
+        - if(user.role === 'user')
+            li 
+                a(href="/my-orders")   My orders
+        - if(user.role === 'admin')
+            li 
+                a(href="/createproduct")   create products
+            //- li 
+            //-     a(href="/reviews")   manage reviews
+            li 
+                a(href="/users")   manage users
+        li
+            a(href='' class='signout')  Log out
 else 
     ul(class='sidenav', id='mobile-demo')
         li 
             a(href="/")  Home 
         li 
-            a(href="#")  How it works
-        li 
             a(href="#")   Contact
+        li 
+            a(href="/cart") 
+                span#cart 
+                    i.fa.fa-shopping-basket.has-text-danger
+                if session.cart
+                    span#cart-count= session.cart.totalQty
         li  
             a(href="/login")  Login 
         li  

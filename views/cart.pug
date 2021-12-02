@@ -1,0 +1,29 @@
+extends base
+
+block content
+    link(rel="stylesheet", href="/stylesheets/pages/cart.css")
+    if products.length !== 0
+        .product.row
+            each product in products
+                .col.is-flex.is-justify-content-space-around
+                    img.responsive-img(src=`/img/products/${product.item.images[0]}`, alt=`${product.item.name}`)
+                    .col.pt-3
+                        p= product.item.name 
+                        p Price: 
+                            em= product.item.price 
+                        p Quantity: 
+                            em= product.qty 
+                        p Price: 
+                            em= product.price 
+                        .col.is-flex.pt-3
+                            form.add-to-cart(data-product-id=`${product.item.id}`)
+                                button.add +
+                            form.reduce-by-one(data-product-id=`${product.item.id}`)
+                                button.remove_1 -
+        p.center-align.pb-3 Total: $ 
+            b= totalPrice 
+        div.center-align.pb-5
+            a(href="/checkout") 
+                button Confirm your  order
+    else
+        p.has-text-centered.is-size-2.py-5 your cart is empty! add items to it.

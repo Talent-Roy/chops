@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const User = require('../models/UserModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-const sendEmail = require('../utils/email');
+const Email = require('../utils/email');
 
 const signToken = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -40,8 +40,13 @@ exports.signup = catchAsync(async (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    confirmPassword: req.body.confirmPassword
+    confirmPassword: req.body.confirmPassword,
+    phoneNum: req.body.phoneNum
   });
+
+  const url = `${req.protocol}://${req.get('host')}/me`;
+  // console.log(url);
+  await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, req, res);
 });
@@ -107,6 +112,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = decodedUser;
   res.locals.user = decodedUser;
   next();
+  // console.log(decodedUser);
 });
 
 // Only for rendered pages, no errors!
@@ -132,6 +138,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
       // THERE IS A LOGGED IN USER
       res.locals.user = currentUser;
+      req.user = res.locals.user;
       return next();
     } catch (err) {
       return next();
@@ -144,6 +151,7 @@ exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     // roles ['admin', 'staff']. role='user'
     if (!roles.includes(req.user.role)) {
+      // console.log(req.user.role);
       return next(
         new AppError('You do not have permission to perform this action', 403)
       );
@@ -166,19 +174,14 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   // 3) Send it to user's email
 
-  const resetURL = `${req.protocol}://${req.get(
-    'host'
-  )}/api/v1/users/resetPassword/${resetToken}`;
-  // await new Email(user, resetURL).sendPasswordReset();
-  const message = `forgot your password? submit a patch request with your 
-    new password and confirmPassword to ${resetURL}.\n if you did not 
-    forget your password please ignore this email.`;
   try {
-    await sendEmail({
-      email: user.email,
-      subject: 'your password reset token. (valid for only 5 mins)',
-      message
-    });
+    const resetURL = `${req.protocol}://${req.get(
+      'host'
+    )}/api/v1/users/resetPassword/${resetToken}`;
+    // await new Email(user, resetURL).sendPasswordReset();
+
+    //engineerngpasswort
+    await new Email(user, resetURL).sendPasswordReset();
 
     res.status(200).json({
       status: 'success',

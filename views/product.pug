@@ -1,0 +1,60 @@
+extends base
+
+block content
+    link(rel="stylesheet", href="/stylesheets/pages/product.css")
+    .product.row
+        .col.s12.m6.l6.img_box
+            .carousel 
+                a.carousel-item(href="#one!") 
+                    img.responsive-img.card(src=`/img/products/${product.images[0]}`, alt=`${product.name}`)
+                a.carousel-item(href="#two!") 
+                    img.responsive-img.card(src=`/img/products/${product.images[1]}`, alt=`${product.name}`)
+                a.carousel-item(href="#three!") 
+                    img.responsive-img.card(src=`/img/products/${product.images[2]}`, alt=`${product.name}`)
+        .col.s12.m6.l6.details_box
+            p= product.name 
+            p Category: 
+                em= product.category 
+            p Price: $
+                em= product.price 
+            .reviews__rating
+                each star in [1, 2, 3, 4, 5]
+                    svg.reviews__star(class=`reviews__star--${product.ratingsAverage >= star ? 'active' : 'inactive'}`) 
+                        use(xlink:href='/img/icons.svg#icon-star') 
+                p.num_rated= product.ratingsQuantity
+            p.product_desc= product.description
+            div.is-flex.is-flex-wrap-wrap
+                form.add-to-cart(data-product-id=`${product.id}`)
+                    button Add to cart
+                span.review-product
+                    button.review-product(data-target="reviewModal" class="modal-trigger") review menu
+            if user
+                if user.role === 'admin'
+                    span.edit-product
+                        button.edit-product(data-target="editModal" class="modal-trigger") edit menu
+    .container.columns 
+        each review in reviews
+            .column 
+                .card.review_card
+                    div.is-flex.img_detail
+                        img.reviews_avatar-img(src=`/img/user/${review.user.photo}`, alt=`${review.user.name}`)
+                        p.reviewer_name=review.user.name
+                    p.pt-4=review.review
+                    .reviews__rating.review_card_stars
+                        each star in [1, 2, 3, 4, 5]
+                            svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`) 
+                                use(xlink:href='/img/icons.svg#icon-star') 
+                    
+        include ./components/_review-form.pug
+        include ./components/edit-product.pug
+    script(type='text/javascript').
+        document.addEventListener('DOMContentLoaded',  function(){
+            var elems = document.querySelectorAll('.carousel')
+            var instances = M.Carousel.init(elems, {
+                shift: 4,
+                padding: 5
+            })
+            var elems = document.querySelectorAll('.modal')
+            var instances = M.Modal.init(elems)
+
+        })

@@ -4,13 +4,4 @@ block content
   link(rel="stylesheet", href="/stylesheets/pages/dashboard.css")
   main.dashboard
     .user-dashboard
-      include ./components/user-navbar.pug
       include ./components/user-settings.pug
-
-        - if (user.role === 'handyman')
-          .handyman-dashboard
-
-          - if (user.role === 'admin')
-          .admin-dashboard
-
-

@@ -1,0 +1,12 @@
+mixin reviewCard(review)
+  link(rel="stylesheet", href="/stylesheets/components/job-review.css")
+  .reviews_card.card.hoverable.col
+    .reviews_avatar.row
+      img.reviews_avatar-img(src=`/img/user/${user.photo}`, alt=`${review.user.name}`)
+      h6.reviews_user= review.user.name
+    .reviews_content.row
+      p.reviews_text= review.review
+      .reviews_rating
+        each star in [1, 2, 3, 4, 5]
+          svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+            use(xlink:href='/img/icons.svg#icon-star')

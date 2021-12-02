@@ -9,6 +9,8 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -18,6 +20,20 @@ const app = express();
 require('dotenv').config({ path: 'config.env' });
 
 app.enable('trust proxy');
+
+app.use(
+  session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: process.env.DATABASE })
+  })
+);
+
+app.use(function(req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
@@ -64,7 +80,7 @@ app.use(xss());
 //prevent parameter pollution
 app.use(
   hpp({
-    whitelist: ['job', 'completed', 'budget']
+    whitelist: ['product']
   })
 );
 
@@ -82,10 +98,10 @@ app.use((req, res, next) => {
 
 app.use('/', require('./routes/views'));
 app.use('/api/v1/users', require('./routes/users'));
-app.use('/api/v1/jobs', require('./routes/jobs'));
-app.use('/api/v1/job-review', require('./routes/jobReviews'));
-app.use('/api/v1/neighbourhoods', require('./routes/neighbourhoods'));
-app.use('/api/v1/neighbourhoodreview', require('./routes/neighbourhoodReview'));
+app.use('/api/v1/reviews', require('./routes/reviews'));
+app.use('/api/v1/products', require('./routes/products'));
+app.use('/api/v1/cart', require('./routes/cart'));
+app.use('/api/v1/orders', require('./routes/orders'));
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));

@@ -1,11 +1,14 @@
 extends base
 block content
     link(rel="stylesheet", href="/stylesheets/pages/login.css")
-    section.login.row.container
+    section.login.row
         .col.s12.m6.l4 
             form.form.form--login.card-panel.hoverable
                 h3.center-align Login
+                label(for="email") Email
                 input#email(type="text", name="email" placeholder='Email' class='white-text')
+                label(for="password") Password 
                 input#password(type="password", name="password" placeholder='Password' class='white-text')
-                button.center-align.btn Submit
-    
+                button.center-align Submit
+            p.center-align Don't have an account? 
+                a(href="/signup") Signup 

@@ -1,24 +1,12 @@
 link(rel="stylesheet", href="/stylesheets/components/hero.css")
-.hero.row 
-    .col.form-box.s12.l6.m6
-        form.card.hoverable.post_job(action="#")
-            h5.center-align Get a certified handyman in minutes
-            input#location(type="text", name="address" placeholder='Location' )
-            textarea#description( cols="30", rows="90" name="description" placeholder='Tell us about the job, please explain in detail.' ) 
-            label(for="noOfHours") How many hours would you like to book
-            input#noOfHours(type="text", name="noOfHours")    
-            input#date(type="date", name="date" value='2021-07-21' min='2021-7-20' max='2021-12-31')
-            label(for="time") 
-            | <select>
-            |        <option hidden="true">Please select a name</option>
-            |        <option value="1">One</option>
-            |        <option value="2">Two</option>
-            |    </select>
-            input#email(type="email", name="email" placeholder='Email')
-            input#contact(type="text", name="contact" placeholder='Phone number')
-            p.center-align
-                button.btn.hoverable Get a quote 
-    .col.text-box.s12.l6.m6
-        h1 Offer your service to millions of clients in Nigeria  
-        a(href="#").hoverable
-            button.btn  Signup 
+.hero
+    div.text.columns
+        div.column
+            h1.has-text-centered.is-size-1-desktop Delicious meals 
+            p.has-text-centered.pt-3
+                a(href="/products").hoverable
+                    button  shop now
+        div.column.is-flex.is-justify-content-center
+            img(src="/img/ui/burger.png", alt="bugger").p-3
+
+        

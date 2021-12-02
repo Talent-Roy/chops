@@ -1,0 +1,31 @@
+.all_orders {
+  margin: 3em auto;
+}
+
+.all_orders .order_box {
+  margin: 0 auto;
+  min-width: 400px;
+  padding: 2em;
+  border: 1px solid rgb(189, 41, 41);
+  border-radius: 10px;
+}
+
+.all_orders h2 {
+  margin: 1.5em auto;
+  font-size: 1.5em;
+}
+
+.all_orders .order_box table {
+  margin: 0 auto;
+}
+
+.all_orders .order_box table th {
+  font-size: 1.3em;
+  text-transform: capitalize;
+  font-weight: 400;
+  padding-bottom: 0.5em;
+}
+
+.all_orders .order_box table td {
+  padding: 0.5em;
+}

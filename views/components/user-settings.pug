@@ -1,5 +1,5 @@
 link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
-.user-settings.container.row
+.user-settings.row
   .user-settings__form-container.col.s12.m6.l6 
     h2.heading.center-align Your account settings
     
@@ -7,20 +7,20 @@ link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
     //- form.form.form-user-data(action='/submit-user-data' method='POST' enctype='multipart/form-data')
     
     //- WITH API
-    form.form.card-panel.hoverable.form-user-data
+    form.card-panel.hoverable.form-user-data
       .form-group
         label(for='name') Name
         input#name(type='text', value=`${user.name}`, required, name='name')
       .form-group
-        label(for='email') Email address
+        label(for='email') Email address 
         input#email(type='email', value=`${user.email}`, required, name='email')
-      //- .form-group
-      //-   img.form-user-photo(src=`/img/users/${user.photo}`, alt='User photo')
-      //-   input.form-upload(type='file', accept='image/*', id='photo', name='photo')
-        //- label(for='photo') Choose new photo
+      .form__group.form__photo-upload
+        img.form__user-photo(src=`/img/user/${user.photo}`, alt='User photo')
+        input.form__upload(type='file', accept='image/*', id='photo', name='photo')
+        label(for='photo') Choose new photo
         
       .form-group
-        button.btn Save settings
+        button Save settings
         
   .line &nbsp;
   
@@ -37,4 +37,4 @@ link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
         label(for='confirm-password') Confirm password
         input#confirm-password(type='password', placeholder='••••••••', required, minlength='8')
       .form-group
-        button.btn.btn--small.btn--green.btn--save-password Save password
+        button.btn--save-password Save password

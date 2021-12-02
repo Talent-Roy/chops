@@ -1,0 +1,76 @@
+.img_box {
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  /* padding-bottom: 1em; */
+}
+
+.pick_day img {
+  border-radius: 999px;
+}
+
+.pick_day .discount_price {
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+  height: 100px;
+  width: 100px;
+  padding: 1.8em;
+  display: flex;
+  margin-top: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.pick_day .discount_price .price::before {
+  content: '$';
+  color: #fff;
+}
+
+@media only screen and (min-width: 1024px) {
+  .pick_day .text_box {
+    margin-top: 8em;
+  }
+
+  .pick_day img {
+    margin-top: 5em;
+  }
+}
+
+.pick_day .text_box h3 {
+  font-size: 2em;
+  font-weight: 400;
+  color: #fff;
+  padding-bottom: 1em;
+}
+
+.pick_day .count_down {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.pick_day .count_down p {
+  padding: 0 0.8em;
+  color: #fff;
+  font-size: 2.5em;
+}
+
+@media only screen and (min-width: 1024px) {
+  .pick_day .count_down p {
+    padding: 0.5em 2em;
+  }
+}
+
+.pick_day .count_down small {
+  font-size: 1em;
+  color: #fff;
+}
+
+.pick_day .action {
+  text-align: center;
+  margin: 1em auto;
+}

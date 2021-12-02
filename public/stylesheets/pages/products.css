@@ -1,0 +1,89 @@
+.products_cont {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background-attachment: fixed;
+  margin-top: 0 !important;
+  margin-bottom: 0;
+  padding-bottom: 3em;
+}
+
+.products_cont h3 {
+  font-size: 2em;
+  margin: 1em auto;
+}
+
+.products_cont::before {
+  content: ' ';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* background: linear-gradient(#fceb03, #3c515a);
+  -webkit-clip-path: circle(20% at 10% 10%);
+  clip-path: circle(20% at 20% 70%); */
+  background-attachment: fixed;
+}
+.buy_hero img {
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 2em;
+}
+
+.products {
+  width: 350px;
+  padding: 1.7em !important;
+  border-radius: 10px;
+  color: #fff;
+  background: rgba(225, 225, 225, 0.1);
+  -webkit-box-shadow: 0px 20px 20px 5px rgb(204, 204, 255) !important;
+  -moz-box-shadow: 0px 20px 20px 5px rgb(204, 204, 255) !important;
+  box-shadow: 0px 20px 20px 5px rgb(204, 204, 255) !important;
+  /* border-top: 1px solid rgba(225, 225, 225, 0.5);
+  border-left: 1px solid rgba(225, 225, 225, 0.5); */
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  transition: box-shadow 2000s ease-out;
+  transition: 1000ms ease-out;
+}
+
+.products:hover {
+  /* transform: scale(1.03); */
+  z-index: 100;
+  -webkit-box-shadow: 0px 20px 35px -16px rgba(66, 125, 202, 0.404) !important;
+  -moz-box-shadow: 0px 20px 35px -16px rgba(66, 125, 202, 0.404) !important;
+  box-shadow: 0px 20px 35px -16px rgba(66, 125, 202, 0.404) !important;
+}
+
+.products .card_img img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
+.products_cont .products .card_details {
+  padding-bottom: 1.7em;
+  color: #000;
+}
+
+.products p {
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.products button {
+  width: 150px;
+  background: transparent;
+  border: transparent;
+  color: #000 !important;
+  font-weight: 500;
+}
+
+.products button:hover {
+  border: 1px solid rgba(221, 42, 42, 0.788) !important;
+  background: transparent !important;
+  color: #000;
+  font-weight: 900;
+}

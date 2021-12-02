@@ -1,5 +1,6 @@
-.user-header {
+.user_header {
   background-color: aliceblue !important;
+  margin-bottom: 0 !important;
 }
 
 nav div .user-options-trigger {
@@ -16,7 +17,7 @@ nav .sidenav {
 }
 
 .user-navbar {
-  background: #5a5959;
+  background: -webkit-linear-gradient(45deg, #bbdfee, #e9e5bd);
 }
 
 .navbar ul li {

@@ -1,0 +1,21 @@
+.checkout {
+  width: 400px;
+  margin: 2em auto;
+}
+
+.checkout h4 {
+  font-size: 1.2em;
+}
+
+.checkout .orders {
+  text-align: start;
+}
+
+.checkout .checkout_form {
+  padding: 2em 1em;
+  margin: 1em auto;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(153, 68, 68, 0.2);
+  border-radius: 5px;
+}

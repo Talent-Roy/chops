@@ -1,0 +1,26 @@
+.payment_modal_card {
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  padding: 1em 1em;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.payment_modal {
+  background: #c55555;
+  padding: 1em 0;
+  border-radius: 7px;
+}
+
+.payment_modal a {
+  float: right;
+  color: #fff;
+}
+
+.payment_modal_card p {
+  text-align: center;
+  color: #000;
+  font-size: 1.3em;
+  text-transform: capitalize;
+}

@@ -1,0 +1,46 @@
+.cat_box {
+  margin-top: 3em;
+  height: 350px;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.cat_box::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d42102;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cat_box:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.cat_box p {
+  align-self: center;
+  font-size: 2em;
+  padding: 0 1em;
+  transition: transform 1.25s ease-in-out;
+}
+
+.cat_box:hover > p {
+  transform: scale(1.1);
+}
+
+.cat_box img {
+  width: 50%;
+  object-fit: contain;
+  transition: transform 1.25s ease-in-out;
+}
+
+.cat_box:hover > img {
+  -ms-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}

@@ -1,7 +1,54 @@
-const User = require('../models/UserModel');
+const multer = require('multer');
+const sharp = require('sharp');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
+const User = require('../models/UserModel');
+
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/img/user');
+//   },
+//   filename: (req, file, cb) => {
+//     //user-36366458dsk-5356777.jpg
+//     const ext = file.mimetype.split('/')[1];
+//     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
+//   }
+// });
+
+const multerStorage = multer.memoryStorage();
+
+//check if uploaded file is an image
+//if (img) we pass = true if(!img) we pass = false + error
+//also works for all filetypes
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(new AppError('Not an image, please upload only images!', 400), false);
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadUserPhoto = upload.single('photo');
+
+exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
+
+  await sharp(req.file.buffer)
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/user/${req.file.filename}`);
+
+  next();
+});
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -33,6 +80,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
    * the only body properties that can be updated
    */
   const filteredBody = filterObj(req.body, 'name', 'email');
+  if (req.file) filteredBody.photo = req.file.filename;
 
   //3)update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
@@ -64,10 +112,7 @@ exports.createUser = (req, res) => {
   });
 };
 
-exports.getAllUsers = factory.getAll(User);
-
-exports.getUser = factory.getOne(User);
-
+exports.getAllUsers = factory.getAll(User, { path: 'orders' });
+exports.getUser = factory.getOne(User, { path: 'orders' });
 exports.updateUser = factory.updateOne(User);
-
 exports.deleteUser = factory.deleteOne(User);

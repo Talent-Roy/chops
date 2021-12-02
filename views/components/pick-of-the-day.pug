@@ -1,0 +1,64 @@
+link(rel="stylesheet", href="/stylesheets/components/pick-of-the-day.css")
+section.pick_day.has-background-danger.w-full
+    .columns.pb-2
+        each product in topPick 
+            .column 
+                div.img-box.is-flex
+                    img(src=`/img/products/${product.images[1]}`, alt="alt")
+                    div.discount_price.is-hidden-mobile.btn-floating.pulse
+                        p only 
+                        p.price=product.priceDiscount
+            .column 
+                div.text_box
+                    h3.has-text-centered Deal of the day
+                    .count_down
+                        div
+                            p.hours 0 : 
+                            small  Hours
+                        div
+                            p.minutes 0 : 
+                            small Minutes
+                        div
+                            p.seconds 0 
+                            small Seconds
+                .action
+                    form.add-to-cart(data-product-id=`${product.id}`)
+                        button Add to cart 
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    //- .columns 
+    //-     each product in topPick
+    //-         .column
+    //-             div.img_box.is-flex.columns
+    //-                 img(src=`/img/products/${product.images[1]}`, alt="img-responsive")
+                    div.discount_price.is-hidden-mobile
+                        p only 
+                        p=product.priceDiscount
+    //-         .column
+    //-             div.text_box.columns
+    //-                 h3.has-text-center Deal of the day
+    //-                 .count_down.is-flex.column
+    //-                     p.hours 0 #[br]
+    //-                        | Hours
+    //-                     p.minutes 0 #[br]
+    //-                         | Minutes
+    //-                     p.seconds 0 #[br]
+    //-                         | Seconds
+
+                    

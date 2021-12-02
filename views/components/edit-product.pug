@@ -1,0 +1,39 @@
+link(rel="stylesheet", href="/stylesheets/components/edit-product.css")
+.edit_modal#editModal.modal
+    div.col.s12.m6.l6#editproduct
+        form#updateProduct.edit-product.card.hoverable.edit_product(data-product-id=`${product.id}`)
+            label(for="name") What is the name of this product?
+            input#updatedName(type="text", name="name" placeholder='name')
+            label(for="category") What category does this product fall under?
+            input#updatedCategory(type="text", name="category" placeholder='category')
+            label(for="quantity") How much of this product is available?
+            input#updatedQuantity(type="text", name="quantity" placeholder='quantity')
+            label(for="price") What is the cost of this product?
+            input#updatedPrice(type="text", name="price" placeholder='price')
+            label(for="discount") Is this product discounted?
+            input#updatedPriceDiscount(type="text", name="priceDiscount" placeholder='price discount')
+            label(for="ratingsAverage") what is the average rating for this product
+            input#updatedRatingsAverage(type="number", name="ratingsAverage" placeholder='e.g 4 0r 5, default is 4')
+            label(for="ratingsQuantity") How many persons have rated this product?
+            input#updatedRatingsQuantity(type="number", name="ratingsQuantity" placeholder='default is 0')
+            label(for="description") Tell more about this product
+            textarea#updatedDescription( cols="30", rows="150" name="description" class='' placeholder='description.' ) 
+            //- div.chosen_imgs    
+            //-     img.product-image__product-photo(id='output0',src='/img/placeholder.png', alt='A photo of  the product')
+            //-     img.product-image__product-photo(id='output1',src='/img/placeholder.png', alt='A photo of  the product')
+            //-     img.product-image__product-photo(id='output2',src='/img/placeholder.png', alt='A photo of  the product')
+            //- input.product-image__upload(type='file', multiple, accept='image/*', id='updatedImages', name='images' onchange='loadFile(event)')
+            //- label.choose-img(for='images').has-background-danger Upload product images
+            //- script(type="text/javascript").
+            //-     var loadFile = function(event) {    
+            //-         var output0 = document.getElementById('output0');
+            //-         var output1 = document.getElementById('output1');
+            //-         var output2 = document.getElementById('output2');
+            //-         output0.src = URL.createObjectURL(event.target.files[0]);
+            //-         output1.src = URL.createObjectURL(event.target.files[1]);
+            //-         output2.src = URL.createObjectURL(event.target.files[2]);
+            //-         output0,output1,output2.onload = function() {
+            //-         URL.revokeObjectURL(output0.src, output1.src,output2.src) // free memory
+            //-         }
+            //-     }
+            button.hoverable.has-background-danger Post edit

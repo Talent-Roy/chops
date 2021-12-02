@@ -1,0 +1,110 @@
+.edit_modal {
+  overflow: scroll;
+  width: 100% !important;
+  padding: 1em 0 5em 0;
+}
+
+.edit_modal div form {
+  padding: 2em;
+  border-radius: 5px;
+  color: #fff;
+  background: rgba(225, 225, 225, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(225, 225, 225, 0.5);
+  border-left: 1px solid rgba(225, 225, 225, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.edit_modal div form h3 {
+  margin: 0;
+  font-size: 4em;
+  color: #fff;
+  padding: 0 0 0.7em 0;
+  font-weight: 900;
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 100;
+  text-shadow: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.edit_modal div form input {
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 2em 0;
+}
+
+.edit_modal form textarea {
+  padding: 0.5em;
+  border-radius: 5px;
+  margin: 0.6em 0;
+  height: 100px;
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.choose-img {
+  background-color: #0f022c;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 250px;
+  color: #000;
+}
+
+.edit_modal div form .chosen_imgs {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-image__product-photo {
+  height: 7.5rem;
+  width: 7.5rem;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+.product-image__upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.product-image__upload:focus + label {
+  outline: 3px solid #55bec5 !important;
+  outline-offset: 3px;
+}
+
+.product-image__upload + label {
+  color: #fff;
+  /* display: inline-block; */
+  text-decoration: none;
+  border-bottom: 1px solid #55bec5;
+  padding: 1em;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5em;
+}
+.product-image__upload + label:hover {
+  background-color: #55bec5;
+  color: #fff;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}

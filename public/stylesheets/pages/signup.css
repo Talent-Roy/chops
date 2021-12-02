@@ -1,38 +1,75 @@
-.signup {
+.signup_sect {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
+  padding: 1em 0 5em 0;
+  background-attachment: fixed;
+  /* background: #fff; */
+  background-position: center;
+  min-height: 100%;
+  background-attachment: fixed;
+  border: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  margin-bottom: 0;
   color: #000 !important;
 }
 
-.signup div {
+/* .signup_sect::before {
+  content: ' ';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0px 0px 13px 57px rgba(106, 228, 6, 0.73);
+  -webkit-box-shadow: 0px 0px 13px 57px rgba(12, 65, 65, 0.73);
+  -moz-box-shadow: 0px 0px 13px 57px rgba(90, 4, 79, 0.73);
+  background: linear-gradient(-45deg, #557f97, #dfdc35);
+  -webkit-clip-path: circle(12% at 65% 70%);
+  clip-path: circle(12% at 65% 70%);
+  background-attachment: fixed;
+} */
+
+.signup_sect div {
   width: 500px;
   margin: 40px auto;
+  color: #000;
 }
 
-.signup div form {
+.signup_sect div form {
   padding: 2em;
-  background: #b1bdbe;
-}
-
-.signup div form h3 {
-  color: rgb(43, 41, 41);
-}
-
-.signup div form button {
-  background-color: #b41616;
-  color: #fff;
-  transition: ease-in-out 3ms;
-}
-
-.signup div form button:hover {
-  background-color: #b92727;
-  color: #fff;
-}
-
-.signup div form input {
+  border-radius: 5px;
   color: #000 !important;
+  background: rgba(225, 225, 225, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(225, 225, 225, 0.5);
+  border-left: 1px solid rgba(225, 225, 225, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.signup_sect div form h3 {
+  margin: 0;
+  font-size: 4em;
+  color: #000;
+  padding: 0 0 0.7em 0;
+  font-weight: 400;
+  background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 100;
+  text-shadow: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.signup_sect div form input {
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   padding: 2em 0;
+  color: #000 !important;
 }

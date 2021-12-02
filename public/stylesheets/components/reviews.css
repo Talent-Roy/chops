@@ -1,6 +1,47 @@
 .reviews {
+  padding: 1em 0 5em 0;
+  background-attachment: fixed;
+  background-position: center;
   width: 100%;
   height: auto;
+  background-attachment: fixed;
+  border: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+.reviews h3 {
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 2.5em;
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 100;
+  text-shadow: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.reviews .review_boxes {
+  border-radius: 5px;
+  padding: 2em;
+  color: #fff;
+  background: rgba(225, 225, 225, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(225, 225, 225, 0.5);
+  border-left: 1px solid rgba(225, 225, 225, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+.review_boxes em {
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .reviews .col {
@@ -16,11 +57,19 @@
 }
 
 .reviews .col span i {
-  font-size: 1em;
-  color: gold;
+  font-size: 0.5em;
+  color: rgb(238, 255, 0) !important;
 }
 
 .reviews .col i {
   font-size: 1.5em;
+  background: -webkit-linear-gradient(rgb(255, 230, 0), rgb(255, 230, 0));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: end;
+}
+
+.reviews em {
   text-align: end;
 }

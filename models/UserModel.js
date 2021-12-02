@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const slugify = require('slugify');
 
 const UserSchema = new mongoose.Schema({
+  slug: String,
   name: {
     type: String,
     required: [true, 'Please tell us your name!']
@@ -15,15 +17,24 @@ const UserSchema = new mongoose.Schema({
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email']
   },
-  photo: {
-    type: String
+  phoneNum: {
+    type: String,
+    required: [true, 'Please fill in your phone number'],
+    trim: true,
+    maxlength: 11,
+    validate: [
+      validator.isMobilePhone,
+      'en-NG',
+      'please provide a valid mobile number'
+    ]
   },
-  address: {
-    type: String
+  photo: {
+    type: String,
+    default: 'default.jpg'
   },
   role: {
     type: String,
-    enum: ['user', 'affiliate', 'staff', 'admin'],
+    enum: ['user', 'engineer', 'admin'],
     default: 'user'
   },
   password: {
@@ -50,7 +61,17 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     select: false
-  }
+  },
+  orders: [{ type: mongoose.Schema.ObjectId, ref: 'Orders' }]
+});
+
+/**
+ * Virtual populate: populating user with own orders
+ */
+UserSchema.virtual('myOrders', {
+  ref: 'Order',
+  foreignField: 'user',
+  localField: '_id'
 });
 
 UserSchema.pre('save', async function(next) {
@@ -69,6 +90,11 @@ UserSchema.pre('save', function(next) {
   if (!this.isModified('password') || this.isNew) return next();
 
   this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
+
+UserSchema.pre('save', function(next) {
+  this.slug = slugify(this.name, { lower: true });
   next();
 });
 

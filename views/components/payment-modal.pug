@@ -1,0 +1,17 @@
+link(rel="stylesheet", href="/stylesheets/components/payment-modal.css")
+#modal1.modal.payment_modal
+    form.payment_modal_card.card.hoverable#paymentForm
+      p Please confirm your details
+      label(for="name") Your name
+      input#name(type="text", name="name" value=`${job.user.name}`) 
+      label(for="email") Your email
+      input#email(type="text", email="email" value=`${job.user.email}`) 
+      label(for="amount") Job quote
+      input#amount(type="text", amount="amount" value= `${ job.quote}`) 
+      button Proceed to checkout
+    a(href="#!" class='modal-close waves-effect waves-red darken-3 btn-flat') Close
+script(type='text/javascript').
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });

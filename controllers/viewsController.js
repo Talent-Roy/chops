@@ -1,8 +1,10 @@
-const Job = require('../models/JobModel');
 const User = require('../models/UserModel');
-const Booking = require('../models/BookingModel');
+// const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const Product = require('../models/ProductModel');
+const Cart = require('../models/CartModel');
+const Order = require('../models/OrderModel');
 
 exports.alerts = (req, res, next) => {
   const { alert } = req.query;
@@ -12,34 +14,153 @@ exports.alerts = (req, res, next) => {
   next();
 };
 
+//render homepage
 exports.getHome = catchAsync(async (req, res, next) => {
-  // // 1) Get job data from collection
-  // const jobs = await Job.find();
-
-  // 2) Build template
-  // 3) Render that template using job data from 1)
+  const topPick = await Product.find()
+    .limit(1)
+    .sort({ ratingsAverage: -1, price: -1 });
+  const topProducts = await Product.find()
+    .limit(4)
+    .sort({ ratingsAverage: -1, price: -1 });
+  console.log(topPick.name);
   res.status(200).render('home', {
-    title: 'All Jobs'
-    // jobs
+    title: 'Home page',
+    topProducts,
+    topPick
   });
 });
 
-exports.getJob = catchAsync(async (req, res, next) => {
-  // 1) Get the data, for the requested job (including reviews and guides)
-  const job = await Job.findOne({ slug: req.params.slug }).populate({
+/**
+ * products----------------------------------------------------
+ */
+
+//render homepage
+exports.createProduct = catchAsync(async (req, res, next) => {
+  res.status(200).render('createproduct', {
+    title: 'Create product'
+  });
+});
+
+//get all available products forsale
+exports.getProducts = catchAsync(async (req, res, next) => {
+  const products = await Product.find(req.query).sort({ createdAt: -1 });
+
+  res.status(200).render('products', {
+    title: 'All products',
+    products
+  });
+});
+
+//get a product detail and populate with reviews
+exports.getProduct = catchAsync(async (req, res, next) => {
+  const product = await Product.findOne({ slug: req.params.slug }).populate({
     path: 'reviews',
     fields: 'review rating user'
   });
 
-  if (!job) {
-    return next(new AppError('There is no job with that name.', 404));
+  if (!product) {
+    return next(new AppError('There is no product with that name.', 404));
   }
+  const { reviews } = product;
 
-  // 2) Build template
-  // 3) Render template using data from 1)
-  res.status(200).render('job', {
-    title: `${job.name} job`,
-    job
+  // console.log(reviews);
+  res.status(200).render('product', {
+    title: `${product.name}`,
+    product,
+    reviews
+  });
+});
+
+//update product
+exports.updateProductData = catchAsync(async (req, res, next) => {
+  const updatedProduct = await Product.findByIdAndUpdate(
+    req.product.id,
+    {
+      price: req.body.price,
+      description: req.body.description
+    },
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+
+  res.status(200).render('product', {
+    title: `${updatedProduct.name}`,
+    product: updatedProduct
+  });
+});
+
+/**------------------------------------------------------------------------- */
+
+/**orders------------------------------------------------------------------- */
+
+exports.getOrders = catchAsync(async (req, res, next) => {
+  const orders = await Order.find().sort({ createdAt: -1 });
+
+  // console.log(orders);
+
+  res.status(200).render('orders', {
+    title: 'All users orders',
+    orders
+  });
+});
+
+exports.getOrder = catchAsync(async (req, res, next) => {
+  const order = await Order.find({ id: req.params._id }).sort({
+    createdAt: -1
+  });
+
+  // console.log(order);
+
+  res.status(200).render('order', {
+    title: 'Order details',
+    order
+  });
+});
+
+exports.getMyOrders = catchAsync(async (req, res, next) => {
+  const orders = await Order.find({ user: req.userId }).sort({
+    createdAt: -1
+  });
+  // console.log(orders);
+  res.status(200).render('orders', {
+    title: 'All your orders',
+    orders
+  });
+});
+
+/**------------------------------------------------------------------------- */
+
+/**---------------------------------------------------------------------------- */
+exports.getReviewForm = (req, res) => {
+  res.status(200).render('post-review', {
+    title: 'Review'
+  });
+};
+
+exports.getCart = catchAsync(async (req, res) => {
+  if (!req.session.cart) {
+    return res.render('cart', { products: null });
+  }
+  const cart = new Cart(req.session.cart);
+  // console.log(cart);
+  res.status(200).render('cart', {
+    products: cart.generateArray(),
+    totalPrice: cart.totalPrice
+  });
+});
+
+exports.getCheckout = catchAsync(async (req, res) => {
+  if (!req.session.cart) {
+    return res.redirect('/cart');
+  }
+  const cart = new Cart(req.session.cart);
+  console.log(cart.items);
+  res.status(200).render('checkout', {
+    total: cart.totalPrice,
+    qty: cart.totalQty,
+    products: cart.generateArray()
   });
 });
 
@@ -55,23 +176,32 @@ exports.getSignupForm = (req, res) => {
   });
 };
 
-exports.getAccount = (req, res) => {
+exports.getAccount = catchAsync(async (req, res, next) => {
   res.status(200).render('account', {
     title: 'Your account'
   });
-};
+  // console.log(req.user);
+});
 
-exports.getMyJobs = catchAsync(async (req, res, next) => {
-  // 1) Find all bookings
-  const bookings = await Booking.find({ user: req.user.id });
+exports.getUsers = catchAsync(async (req, res, next) => {
+  const users = await User.find();
 
-  // 2) Find jobs with the returned IDs
-  const jobIDs = bookings.map(el => el.job);
-  const jobs = await Job.find({ _id: { $in: jobIDs } });
+  res.status(200).render('users', {
+    title: 'All Users',
+    users
+  });
+});
 
-  res.status(200).render('my-jobs', {
-    title: 'My jobs',
-    jobs
+exports.getUser = catchAsync(async (req, res, next) => {
+  const user = await User.findOne({ slug: req.params.slug });
+
+  if (!user) {
+    return next(new AppError('There is no user with that name.', 404));
+  }
+
+  res.status(200).render('user', {
+    title: `${user.name}`,
+    user
   });
 });
 
