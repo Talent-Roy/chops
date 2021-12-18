@@ -26,7 +26,7 @@ app.use(
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.DATABASE_PROD })
+    store: MongoStore.create({ mongoUrl: process.env.DATABASE })
   })
 );
 

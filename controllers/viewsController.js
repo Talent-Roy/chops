@@ -22,7 +22,7 @@ exports.getHome = catchAsync(async (req, res, next) => {
   const topProducts = await Product.find()
     .limit(4)
     .sort({ ratingsAverage: -1, price: -1 });
-  console.log(topPick.name);
+
   res.status(200).render('home', {
     title: 'Home page',
     topProducts,

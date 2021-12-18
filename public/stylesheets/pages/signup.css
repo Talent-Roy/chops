@@ -6,7 +6,6 @@
   width: 100%;
   padding: 1em 0 5em 0;
   background-attachment: fixed;
-  /* background: #fff; */
   background-position: center;
   min-height: 100%;
   background-attachment: fixed;
@@ -17,20 +16,6 @@
   margin-bottom: 0;
   color: #000 !important;
 }
-
-/* .signup_sect::before {
-  content: ' ';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  box-shadow: 0px 0px 13px 57px rgba(106, 228, 6, 0.73);
-  -webkit-box-shadow: 0px 0px 13px 57px rgba(12, 65, 65, 0.73);
-  -moz-box-shadow: 0px 0px 13px 57px rgba(90, 4, 79, 0.73);
-  background: linear-gradient(-45deg, #557f97, #dfdc35);
-  -webkit-clip-path: circle(12% at 65% 70%);
-  clip-path: circle(12% at 65% 70%);
-  background-attachment: fixed;
-} */
 
 .signup_sect div {
   width: 500px;
@@ -66,10 +51,6 @@
 }
 
 .signup_sect div form input {
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   padding: 2em 0;
   color: #000 !important;
 }

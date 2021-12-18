@@ -28,7 +28,7 @@
 .reviews .review_boxes {
   border-radius: 5px;
   padding: 2em;
-  color: #fff;
+  color: #000;
   background: rgba(225, 225, 225, 0.1);
   box-shadow: rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(225, 225, 225, 0.5);
