@@ -5,11 +5,12 @@ block content
     .products_cont
         .buy_hero
             img(src="/img/ui/dine.jpg", alt="hero").responsive-img
-        .container.row
-            h3.center-align Lattest menus
+        .container.row.products_wrap
             each product in products
+                //- h3.center-align= product.category
+                //-     |  menu
                 a.hoverable#products(href=`/product/${product.slug}`) 
-                    .col.products.s12.m6.l4.card.hoverable
+                    .col.products.s12.m6.l3.card.hoverable
                         .card_img
                             img.image.responsive-img(src=`/img/products/${product.images[0]}`, alt=`${product.title}`)                        
                         .card_details
@@ -21,5 +22,3 @@ block content
                                 button Add to cart
                             a(href=`/product/${product.slug}`).col.s6.m6.l6
                                 button Details
-                                //- p.center-align Exchange: 
-                                //-     i= product.exchange.concat('...')

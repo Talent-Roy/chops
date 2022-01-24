@@ -19,6 +19,7 @@ body {
   width: 100% !important;
   background-color: #f9f8ff;
   color: var(--secondary);
+  overflow-x: hidden;
 }
 
 h1,
@@ -56,7 +57,7 @@ p {
 }
 
 *::-webkit-input-placeholder {
-  color: #000000;
+  color: #000000 !important;
 }
 
 *:-moz-placeholder {

@@ -4,24 +4,23 @@ block content
     link(rel="stylesheet", href="/stylesheets/pages/orders.css")
     .container.all_orders
         h2.has-text-centered #{title}
-        each orderedProduct in order
             .container.order_box
                 table
                     thead
                     tbody
                         td 
                             b Items:
-                        each item in orderedProduct.itemName 
+                        each item in order.itemName 
                             td=item
                     tbody
                         td 
                             b Quantity:
-                        each qty in orderedProduct.itemQty 
+                        each qty in order.itemQty 
                             td=qty
                     tbody
                         td 
                             b price:
-                        each price in orderedProduct.itemPrice
+                        each price in order.itemPrice
                             td=price
                     tbody
                         td 

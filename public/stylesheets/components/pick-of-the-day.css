@@ -5,8 +5,13 @@
   /* padding-bottom: 1em; */
 }
 
+.pick_day {
+  background: #e60000;
+}
+
 .pick_day img {
   border-radius: 999px;
+  background: #e60000;
 }
 
 .pick_day .discount_price {

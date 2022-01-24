@@ -64,7 +64,7 @@
 
 .login div form input {
   padding: 2em 0;
-  color: #000;
+  color: #000 !important;
 }
 
 /* .login div p {

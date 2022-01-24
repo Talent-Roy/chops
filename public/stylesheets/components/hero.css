@@ -1,13 +1,76 @@
 .hero {
   width: 100% !important;
   background: rgba(225, 225, 225, 0.5);
-  height: 100vh;
+  height: 100% !important;
   background-position: center;
   background-size: cover;
   object-fit: cover;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   overflow: hidden;
+  animation-duration: 1000ms;
+
+  background: linear-gradient(
+    124deg,
+    #ff2200ab,
+    #e81d1d6e,
+    #e8b91dce,
+    #23e03c7c,
+    #e8d41d34,
+    #df00f336,
+    #df00f334
+  );
+  background-size: 1000% 1000%;
+
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
 }
 
 .hero .text {
@@ -29,7 +92,9 @@
 
 .hero .text h1 {
   line-height: 1.5em;
-  font-size: 2.7em;
+  font-size: 2.8em !important;
+  font-weight: 600;
+  /* padding: 3em auto; */
   background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
   -webkit-background-clip: text;
   background-clip: text;
@@ -46,8 +111,13 @@
 
 @media only screen and (min-width: 1024px) {
   .hero {
-    height: 60vh;
+    height: 100% !important;
   }
+  .hero .text {
+    display: flex;
+    /* flex-direction: column; */
+  }
+
   .hero .text h1 {
     margin-top: 5em;
   }
@@ -59,9 +129,39 @@
 
 @media only screen and (max-width: 768px) {
   .hero {
-    height: 100% !important;
+    height: 80% !important;
   }
   .hero .text h1 {
     margin-top: 3em;
+  }
+}
+
+@media only screen and (width: 820px) {
+  .hero {
+    height: 80% !important;
+  }
+
+  .hero .text {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero .text h1 {
+    margin-top: 3em;
+    font-size: 3em;
+  }
+}
+
+@media only screen and (width: 912px) {
+  .hero {
+    height: 80% !important;
+  }
+
+  .hero .text {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero .text h1 {
+    margin-top: 3em;
+    font-size: 3em !important;
   }
 }

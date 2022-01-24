@@ -1,10 +1,10 @@
 .reviews {
-  padding: 1em 0 5em 0;
+  padding: 5em 0 5em 0;
+  background: url('../../img/ui/pexels-isabella-mendes-858508.jpg');
   background-attachment: fixed;
   background-position: center;
   width: 100%;
-  height: auto;
-  background-attachment: fixed;
+  /* height: 100%; */
   border: transparent;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,7 +16,11 @@
   text-align: center;
   line-height: 1.5em;
   font-size: 2.5em;
-  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
+  font-weight: 600;
+  background: -webkit-linear-gradient(
+    rgb(255, 255, 255, 1),
+    rgb(255, 255, 255, 1)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -35,13 +39,25 @@
   border-left: 1px solid rgba(225, 225, 225, 0.5);
   backdrop-filter: blur(5px);
   z-index: 1;
+  height: fit-content !important;
+}
+
+.reviews .review_boxes .details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviews .review_boxes img {
+  border-radius: 75%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .review_boxes em {
-  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgb(255, 255, 255) !important;
+  font-size: 1.1em;
 }
 
 .reviews .col {

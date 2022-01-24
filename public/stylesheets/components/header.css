@@ -27,6 +27,10 @@
   color: #fff;
 }
 
+.nav-cont {
+  background: #e60000 !important;
+}
+
 .nav-wrapper a i {
   font-size: 2.5em;
   background: -webkit-linear-gradient(

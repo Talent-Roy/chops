@@ -22,7 +22,6 @@ exports.getHome = catchAsync(async (req, res, next) => {
   const topProducts = await Product.find()
     .limit(4)
     .sort({ ratingsAverage: -1, price: -1 });
-
   res.status(200).render('home', {
     title: 'Home page',
     topProducts,
@@ -107,11 +106,11 @@ exports.getOrders = catchAsync(async (req, res, next) => {
 });
 
 exports.getOrder = catchAsync(async (req, res, next) => {
-  const order = await Order.find({ id: req.params._id }).sort({
+  const order = await Order.findOne({ id: req.params._id }).sort({
     createdAt: -1
   });
 
-  // console.log(order);
+  console.log(order);
 
   res.status(200).render('order', {
     title: 'Order details',
@@ -120,10 +119,9 @@ exports.getOrder = catchAsync(async (req, res, next) => {
 });
 
 exports.getMyOrders = catchAsync(async (req, res, next) => {
-  const orders = await Order.find({ user: req.userId }).sort({
+  const orders = await Order.find({ userId: req.user.id }).sort({
     createdAt: -1
   });
-  // console.log(orders);
   res.status(200).render('orders', {
     title: 'All your orders',
     orders

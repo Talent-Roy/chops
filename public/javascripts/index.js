@@ -8,12 +8,19 @@ import { cart, cartRemoveOne } from './cart';
 import { showAlert } from './alert';
 import { product } from './product';
 import { updateProduct } from './updateProduct';
+import { startTimer } from './timer';
 import axios from 'axios';
 
 document.DOMContentLoaded = function() {
   document
     .getElementById('displayReviewForm')
     .addEventListener('click', showReview);
+};
+
+window.onload = function() {
+  var twty4Hours = 24 * 60 * 60,
+    display = document.querySelector('.timer');
+  startTimer(twty4Hours, display);
 };
 
 // DOM ELEMENTS
@@ -45,12 +52,16 @@ if (signupForm)
   });
 
 if (loginForm)
-  loginForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    login(email, password);
-  });
+  loginForm.addEventListener(
+    'submit',
+    e => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      login(email, password);
+    },
+    { once: true }
+  );
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
 if (signOutBtn) signOutBtn.addEventListener('click', signout);
