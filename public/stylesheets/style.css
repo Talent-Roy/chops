@@ -32,11 +32,12 @@ h6 {
   font-weight: 400;
 }
 
-button {
+button,
+.button {
   background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
   height: 3em;
   width: 200px;
-  color: var(--tetiary);
+  color: var(--tetiary) !important;
   box-shadow: 1px 1px #f3e8e9 !important;
   border: 1px solid var(--midGrey);
   border-radius: 5px;
@@ -167,4 +168,67 @@ p {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
+} */
+
+/* animation-duration: 1000ms;
+
+  background: linear-gradient(
+    124deg,
+    #ff2200ab,
+    #e81d1d6e,
+    #e8b91dce,
+    #23e03c7c,
+    #e8d41d34,
+    #df00f336,
+    #df00f334
+  );
+  background-size: 1000% 1000%;
+
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite; */
+/* @-webkit-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@-moz-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@-o-keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}
+@keyframes rainbow {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
 } */

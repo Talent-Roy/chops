@@ -1,11 +1,20 @@
 link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
-.user-settings.row
+.user-settings.container.row
+  .user_info
+    .profile_img
+      img.responsive-img.hoverable(src=`/img/user/${user.photo}` alt=`${user.name}`)
+    .profile_data
+      h4= user.name 
+      p Email: 
+        em= user.email 
+      p Phone: 
+        em= user.phoneNum
   .user-settings__form-container.col.s12.m6.l6 
-    h2.heading.center-align Your account settings
-    
+    h2.heading.center-align Update your profile
+
     //- WITHOUT API
     //- form.form.form-user-data(action='/submit-user-data' method='POST' enctype='multipart/form-data')
-    
+
     //- WITH API
     form.card-panel.hoverable.form-user-data
       .form-group
@@ -15,17 +24,25 @@ link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
         label(for='email') Email address 
         input#email(type='email', value=`${user.email}`, required, name='email')
       .form__group.form__photo-upload
-        img.form__user-photo(src=`/img/user/${user.photo}`, alt='User photo')
-        input.form__upload(type='file', accept='image/*', id='photo', name='photo')
-        label(for='photo') Choose new photo
-        
+        img.form__user-photo(src=`/img/user/${user.photo}`, alt='User photo' id='newImg',)
+        input.form__upload(type='file', accept='image/*', id='photo', name='photo' onchange='loadFile(event)')
+        label.button(for='photo') Choose new photo
+        script(type="text/javascript").
+          var loadFile = function(event) {
+            var newImg = document.getElementById('newImg');
+            newImg.src = URL.createObjectURL(event.target.files[0]);
+            newImg.onload = function() {
+            URL.revokeObjectURL(newImg.src) 
+            }
+          }
+
       .form-group
         button Save settings
-        
+
   .line &nbsp;
-  
+
   .user-settings__form-container.col.s12.m6.l6 
-    h2.heading.center-align Password change
+    h2.heading.center-align Change your password
     form.form.form-user-password.card-panel.hoverable
       .form-group
         label(for='current-password') Current password

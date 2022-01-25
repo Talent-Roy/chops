@@ -1,6 +1,6 @@
 .reviews {
   padding: 5em 0 5em 0;
-  background: url('../../img/ui/pexels-isabella-mendes-858508.jpg');
+  background: url('../../img/ui/tomatos.jpg');
   background-attachment: fixed;
   background-position: center;
   width: 100%;
@@ -17,10 +17,7 @@
   line-height: 1.5em;
   font-size: 2.5em;
   font-weight: 600;
-  background: -webkit-linear-gradient(
-    rgb(255, 255, 255, 1),
-    rgb(255, 255, 255, 1)
-  );
+  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -56,7 +53,7 @@
 }
 
 .review_boxes em {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(0, 0, 0, 1) !important;
   font-size: 1.1em;
 }
 

@@ -4,7 +4,7 @@ block content
     link(rel="stylesheet", href="/stylesheets/pages/createproduct.css")
     .row.create_product
         div.col.s12.m6.l6#postproduct
-            form.post-product.card.hoverable.post_product
+            form.post-product.card.hoverable.post_product.post-product-form
                 label(for="name") What is the name of this product?
                 input#name(type="text", name="name" placeholder='name')
                 label(for="category") What category does this product fall under?
@@ -17,12 +17,12 @@ block content
                 input#priceDiscount(type="text", name="priceDiscount" placeholder='price discount')
                 label(for="description") Tell more about this product
                 textarea#description( cols="30", rows="150" name="description" class='' placeholder='description.' ) 
-                div.chosen_imgs    
+                div.chosen_imgs
                     img.product-image__product-photo(id='output0',src='/img/placeholder.png', alt='A photo of  the product')
                     img.product-image__product-photo(id='output1',src='/img/placeholder.png', alt='A photo of  the product')
                     img.product-image__product-photo(id='output2',src='/img/placeholder.png', alt='A photo of  the product')
                 input.product-image__upload(type='file', multiple, accept='image/*', id='images', name='images' onchange='loadFile(event)')
-                label.choose-img(for='images').has-background-danger Upload product images
+                label.choose-img.button(for='images') Upload product images
                 script(type="text/javascript").
                     var loadFile = function(event) {    
                         var output0 = document.getElementById('output0');
@@ -35,4 +35,4 @@ block content
                         URL.revokeObjectURL(output0.src, output1.src,output2.src) // free memory
                         }
                     }
-                button.hoverable.has-background-danger Create product
+                button.hoverable Create product

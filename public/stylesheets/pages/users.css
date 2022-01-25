@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.users .box {
+  width: 100%;
+}
+
 .users h2 {
   font-size: 1.8em;
   margin: 1em auto;

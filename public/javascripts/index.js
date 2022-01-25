@@ -135,7 +135,7 @@ if (postProductForm)
     form.append('images', document.getElementById('images').files[0]);
     form.append('images', document.getElementById('images').files[1]);
     form.append('images', document.getElementById('images').files[2]);
-    // console.log(form);
+    console.log(form);
 
     await product(form, 'data');
   });

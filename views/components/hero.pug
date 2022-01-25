@@ -1,10 +1,19 @@
 link(rel="stylesheet", href="/stylesheets/components/hero.css")
 .hero
     div.text.columns
-        div.column
-            h1.has-text-centered Delicious meals 
-            p.has-text-centered.pt-3
+        div.column.box_1
+            img.broccolli(src="/img/ui/broccolli.png", alt="broccolli")
+            h1.has-text-centered.py-5 Delicious meals 
+            p.has-text-centered
                 a(href="/products").hoverable
                     button  shop now
-        div.column.is-flex.is-justify-content-center
-            img(src="/img/ui/burger.png", alt="bugger")
+            div.column.inner.flex.justify-between
+                img.pepper(src="/img/ui/pepper.png", alt="pepper")
+                img.burger(src="/img/ui/burger.png", alt="bugger")
+                
+        div.column.box_2
+            div.column.inner.flex
+                img.tomato(src="/img/ui/tomato.png", alt="tomato")
+            img.plate(src="/img/ui/plate.png", alt="plate")
+            div.column.inner.flex
+                //- img.tomato(src="/img/ui/tomato.png", alt="tomato")

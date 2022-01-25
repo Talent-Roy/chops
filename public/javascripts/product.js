@@ -9,7 +9,7 @@ export const product = async data => {
       url: `/api/v1/products`,
       data
     });
-    // console.log(data);
+    console.log(data);
     if (res.data.status === 'success') {
       showAlert('success', `Congrats! your product has been created.`);
       window.setTimeout(() => {

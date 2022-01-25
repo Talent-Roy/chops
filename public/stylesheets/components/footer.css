@@ -1,5 +1,5 @@
 .footer {
-  background: #e60000;
+  background: #e60000d7;
   color: #fff !important;
   display: flex;
   flex-direction: column;
@@ -19,4 +19,17 @@
 .footer .box1 ul a {
   color: #fff;
   padding: 1em 2em;
+}
+
+.footer .box2 ul {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  font-size: 0.8em;
+}
+
+.footer .box2 ul a {
+  text-decoration: none;
+  color: #94f555a5;
+  padding: 1 3em;
 }

@@ -1,12 +1,41 @@
 .user-settings {
-  background-attachment: fixed;
-  background-position: center;
-  background-attachment: fixed;
-  border: transparent;
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: cover;
-  margin-bottom: 0;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 2em 0;
+}
+
+.user_info {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+.profile_img {
+  width: 400px !important;
+}
+
+.profile_img img {
+  border-radius: 20px;
+}
+
+.profile_data {
+  width: 400px !important;
+  color: #000 !important;
+  padding: 2em;
+}
+
+.profile_data h4 {
+  text-transform: capitalize;
+  font-size: 1.5em;
+  font-weight: normal;
+  padding-bottom: 0.5em;
+}
+
+.profile_data p {
+  padding-bottom: 0.5em;
 }
 
 .user-settings__form-container {
@@ -29,41 +58,77 @@
 
 .user-settings div form {
   padding: 2em;
-  border-radius: 5px;
+  background: #e60000d7;
   color: #fff;
-  background: rgba(225, 225, 225, 0.1);
-  box-shadow: rgba(0, 0, 0, 0.5);
-  border-top: 1px solid rgba(225, 225, 225, 0.5);
-  border-left: 1px solid rgba(225, 225, 225, 0.5);
-  backdrop-filter: blur(5px);
-  z-index: 1;
 }
 
 .user-settings div h2 {
-  font-size: 2.5em;
-  color: #fff;
-  padding: 1em 0 0.7em 0;
-  font-weight: 400;
-  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 100;
-  text-shadow: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
+  color: #000;
+  font-size: 1.7em;
+  padding-bottom: 2em;
+  font-weight: normal;
 }
 
 .user-settings div form label {
-  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  padding: 1em;
+  color: #fff;
 }
 
+.user-settings div form button {
+  /* background-color: #b41616; */
+  color: #fff;
+  transition: ease-in-out 3ms;
+}
+
+/* .user-settings div form button:hover {
+  background-color: #b92727;
+  color: #fff;
+} */
+
 .user-settings div form input {
-  background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
   padding: 2em 0;
+}
+
+.form__photo-upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+.form__user-photo {
+  height: 7.5rem;
+  width: 7.5rem;
+  border-radius: 50%;
+  margin: 0.01em 2rem 0.5em 0;
+}
+
+.form__upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.form__upload:focus + label {
+  outline: 3px solid #fff;
+}
+
+.form__upload + label {
+  text-decoration: none;
+  border-bottom: 1px solid #dc0a0a;
+  padding: 8px;
+
+  cursor: pointer;
+}
+.form__upload + label:hover {
+  color: #fff;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
