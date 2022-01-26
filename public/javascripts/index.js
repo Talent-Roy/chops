@@ -128,7 +128,7 @@ if (postReviewForm)
 if (postProductForm)
   postProductForm.addEventListener('submit', async e => {
     e.preventDefault();
-    document.querySelector('.prod_btn').textContent = 'Updating...';
+    document.querySelector('.prod_btn').textContent = 'Creating...';
 
     const form = new FormData();
     form.append('name', document.getElementById('name').value);
