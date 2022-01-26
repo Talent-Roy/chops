@@ -1,11 +1,14 @@
 .edit_modal {
   overflow: scroll;
-  width: 100% !important;
+  width: fit-content;
+  height: fit-content;
   padding: 1em 0 5em 0;
+  border-radius: 5px;
 }
 
 .edit_modal div form {
   padding: 2em;
+  width: 400px;
   border-radius: 5px;
   color: #fff;
   background: rgba(225, 225, 225, 0.1);
@@ -35,7 +38,7 @@
   background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: #000;
   padding: 2em 0;
 }
 
@@ -47,7 +50,7 @@
   background: -webkit-linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, 1));
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: #000;
 }
 
 .choose-img {

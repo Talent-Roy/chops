@@ -35,9 +35,12 @@ export const updateProduct = async (
       showAlert('success', `Your update was successful.`);
       window.setTimeout(() => {
         location.reload();
-      }, 1500000);
+      }, 1500);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
+    window.setTimeout(() => {
+      location.reload();
+    }, 1500);
   }
 };

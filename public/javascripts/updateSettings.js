@@ -23,5 +23,8 @@ export const updateSettings = async (data, type) => {
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
+    window.setTimeout(() => {
+      location.reload();
+    }, 1500);
   }
 };

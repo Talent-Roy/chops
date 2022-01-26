@@ -25,7 +25,7 @@ block content
             p.product_desc= product.description
             div.is-flex.is-flex-wrap-wrap
                 form.add-to-cart(data-product-id=`${product.id}`)
-                    button Add to cart
+                    button.add_btn Add to cart
                 span.review-product
                     button.review-product(data-target="reviewModal" class="modal-trigger") review menu
             if user

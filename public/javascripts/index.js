@@ -43,6 +43,8 @@ const reduceByOne = document.querySelectorAll('.reduce-by-one');
 if (signupForm)
   signupForm.addEventListener('submit', e => {
     e.preventDefault();
+    document.querySelector('.signup_btn').textContent = 'Creating...';
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -56,6 +58,7 @@ if (loginForm)
     'submit',
     e => {
       e.preventDefault();
+      document.querySelector('.login_btn').textContent = 'loggin in...';
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       login(email, password);
@@ -75,6 +78,8 @@ if (signOutBtn) signOutBtn.addEventListener('click', signout);
 if (userDataForm)
   userDataForm.addEventListener('submit', e => {
     e.preventDefault();
+    document.querySelector('.user_data_btn').textContent = 'Updating...';
+
     const form = new FormData();
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
@@ -111,6 +116,7 @@ if (userPasswordForm)
 if (postReviewForm)
   postReviewForm.addEventListener('submit', e => {
     e.preventDefault();
+    document.querySelector('.review_btn').textContent = 'Reviewing...';
     const { productId } = e.target.dataset;
     const review = document.getElementById('review').value;
     const rating = document.getElementById('rating').value;
@@ -122,6 +128,8 @@ if (postReviewForm)
 if (postProductForm)
   postProductForm.addEventListener('submit', async e => {
     e.preventDefault();
+    document.querySelector('.prod_btn').textContent = 'Updating...';
+
     const form = new FormData();
     form.append('name', document.getElementById('name').value);
     form.append('category', document.getElementById('category').value);
@@ -143,6 +151,8 @@ if (postProductForm)
 if (updateProductForm)
   updateProductForm.addEventListener('submit', async e => {
     e.preventDefault();
+    document.querySelector('.update_prod_btn').textContent = 'Updating...';
+
     const { productId } = e.target.dataset;
 
     const name = document.getElementById('updatedName').value;
@@ -177,6 +187,7 @@ if (addToCart)
   addToCart.forEach(el => {
     el.addEventListener('submit', e => {
       e.preventDefault();
+
       const { productId } = e.target.dataset;
       // console.log(productId);
       cart(productId);

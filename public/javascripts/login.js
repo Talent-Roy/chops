@@ -30,6 +30,9 @@ export const signup = async (
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
+    window.setTimeout(() => {
+      location.reload();
+    }, 1500);
   }
 };
 
@@ -53,6 +56,9 @@ export const login = async (email, password) => {
     }
   } catch (err) {
     showAlert('error', err.response.data.message);
+    window.setTimeout(() => {
+      location.reload();
+    }, 1500);
   }
 };
 
