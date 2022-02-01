@@ -37,11 +37,12 @@ when it's mixed e.g 1 + more we use
 exports.resizeProductImages = catchAsync(async (req, res, next) => {
   // 2) Images
   req.body.images = [];
-  console.log(req.files);
+  // console.log(req.files);
 
   await Promise.all(
     req.files.map(async (file, i) => {
-      const filename = `product-${req.body.slug}-${Date.now()}-${i + 1}.jpeg`;
+      const filename = `product-${req.user.id}-${Date.now()}-${i + 1}.jpeg`;
+      // console.log(req.user.id);
 
       await sharp(file.buffer)
         .resize(2000, 1333)
