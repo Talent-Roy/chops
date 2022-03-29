@@ -4,6 +4,7 @@ const Product = require('../models/ProductModel');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 const AppError = require('../utils/appError');
+const cloudinary = require('../utils/cloudinaryConfig');
 
 const multerStorage = multer.memoryStorage();
 
@@ -34,6 +35,8 @@ when it's mixed e.g 1 + more we use
 //upload.fields([{}])
  */
 
+let result;
+
 exports.resizeProductImages = catchAsync(async (req, res, next) => {
   // 2) Images
   req.body.images = [];
@@ -41,16 +44,26 @@ exports.resizeProductImages = catchAsync(async (req, res, next) => {
 
   await Promise.all(
     req.files.map(async (file, i) => {
-      const filename = `product-${req.user.id}-${Date.now()}-${i + 1}.jpeg`;
+      const filename = `public/img/job-${req.user.slug}-${Date.now()}-${i +
+        1}.jpeg`;
       // console.log(req.user.id);
 
       await sharp(file.buffer)
         .resize(2000, 1333)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
-        .toFile(`public/img/products/${filename}`);
+        .toFile(filename);
 
-      req.body.images.push(filename);
+      try {
+        result = await cloudinary.uploader.upload(filename);
+        // console.log(result, res);
+      } catch {
+        console.log(
+          'Problem uploading images, please check your network connection.'
+        );
+      }
+
+      req.body.images.push(result.secure_url);
     })
   );
 
@@ -73,7 +86,19 @@ exports.aliasTopProducts = (req, res, next) => {
 
 exports.getAllProducts = factory.getAll(Product, { path: 'reviews' });
 
-exports.createProduct = factory.createOne(Product);
+exports.createProduct = catchAsync(async (req, res, next) => {
+  if (req.file) req.body.images = result.secure_url;
+  if (req.cloudinaryId) req.cloudinaryId = result.public_id;
+  const product = Product.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    message: 'created a new document',
+    data: {
+      data: product
+    }
+  });
+});
 
 exports.getSingleProduct = catchAsync(async (req, res, next) => {
   const product = await Product.findById(req.params.id).populate({

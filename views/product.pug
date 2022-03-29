@@ -6,11 +6,11 @@ block content
         .col.s12.m6.l6.img_box
             .carousel 
                 a.carousel-item(href="#one!") 
-                    img.responsive-img.card(src=`/img/products/${product.images[0]}`, alt=`${product.name}`)
+                    img.responsive-img.card(src=`${product.images[0]}`, alt=`${product.name}`)
                 a.carousel-item(href="#two!") 
-                    img.responsive-img.card(src=`/img/products/${product.images[1]}`, alt=`${product.name}`)
+                    img.responsive-img.card(src=`${product.images[1]}`, alt=`${product.name}`)
                 a.carousel-item(href="#three!") 
-                    img.responsive-img.card(src=`/img/products/${product.images[2]}`, alt=`${product.name}`)
+                    img.responsive-img.card(src=`${product.images[2]}`, alt=`${product.name}`)
         .col.s12.m6.l6.details_box
             p= product.name 
             p Category: 
@@ -37,7 +37,7 @@ block content
             .column 
                 .card.review_card
                     div.is-flex.img_detail
-                        img.reviews_avatar-img(src=`/img/user/${review.user.photo}`, alt=`${review.user.name}`)
+                        img.reviews_avatar-img(src=`${review.user.photo}`, alt=`${review.user.name}`)
                         p.reviewer_name=review.user.name
                     p.pt-4=review.review
                     .reviews__rating.review_card_stars

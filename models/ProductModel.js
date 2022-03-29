@@ -4,6 +4,7 @@ const slugify = require('slugify');
 
 const ProductSchema = new mongoose.Schema(
   {
+    cloudinaryId: String,
     slug: String,
     name: {
       type: String

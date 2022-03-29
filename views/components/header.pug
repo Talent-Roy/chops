@@ -54,7 +54,7 @@ if user
         li 
             div.header_img_box.hoverable
                 a(href='/me')
-                    img(src=`/img/user/${user.photo}`, alt='User photo')
+                    img(src=`${user.photo}`, alt='User photo')
                     p= user.name.split(' ')[0]
         li 
             a(href="/")  Home 

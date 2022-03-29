@@ -4,7 +4,7 @@ section.pick_day.w-full
         each product in topPick 
             .column 
                 div.img-box.is-flex
-                    img(src=`/img/products/${product.images[1]}`, alt="alt")
+                    img(src=`${product.images[1]}`, alt="alt")
                     div.discount_price.is-hidden-mobile.btn-floating.pulse
                         p only 
                         p.price=product.priceDiscount

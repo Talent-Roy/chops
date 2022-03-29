@@ -12,7 +12,7 @@ block content
                 a.hoverable#products(href=`/product/${product.slug}`) 
                     .col.products.s12.m6.l3.card.hoverable
                         .card_img
-                            img.image.responsive-img(src=`/img/products/${product.images[0]}`, alt=`${product.title}`)                        
+                            img.image.responsive-img(src=`${product.images[0]}`, alt=`${product.title}`)                        
                         .card_details
                             p= product.name
                             p= product.price

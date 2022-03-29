@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const slugify = require('slugify');
 
 const UserSchema = new mongoose.Schema({
+  cloudinaryId: String,
   slug: String,
   name: {
     type: String,

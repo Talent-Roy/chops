@@ -91,7 +91,7 @@ if (userDataForm)
 if (userPasswordForm)
   userPasswordForm.addEventListener('submit', async e => {
     e.preventDefault();
-    document.querySelector('.btn--save-password').textContent = 'Updating...';
+    // document.querySelector('.btn--save-password').textContent = 'Updating...';
 
     const currentPassword = document.getElementById('current-password').value;
     const password = document.getElementById('password').value;
@@ -151,7 +151,7 @@ if (postProductForm)
 if (updateProductForm)
   updateProductForm.addEventListener('submit', async e => {
     e.preventDefault();
-    document.querySelector('.update_prod_btn').textContent = 'Updating...';
+    // document.querySelector('.update_prod_btn').textContent = 'Updating...';
 
     const { productId } = e.target.dataset;
 

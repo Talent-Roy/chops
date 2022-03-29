@@ -2,7 +2,7 @@ link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
 .user-settings.container.row
   .user_info
     .profile_img
-      img.responsive-img.hoverable(src=`/img/user/${user.photo}` alt=`${user.name}`)
+      img.responsive-img.hoverable(src=`${user.photo}` alt=`${user.name}`)
     .profile_data
       h4= user.name 
       p Email: 
@@ -24,7 +24,7 @@ link(rel="stylesheet", href="/stylesheets/components/user-settings.css")
         label(for='email') Email address 
         input#email(type='email', value=`${user.email}`, required, name='email')
       .form__group.form__photo-upload
-        img.form__user-photo(src=`/img/user/${user.photo}`, alt='User photo' id='newImg',)
+        img.form__user-photo(src=`${user.photo}`, alt='User photo' id='newImg',)
         input.form__upload(type='file', accept='image/*', id='photo', name='photo' onchange='loadFile(event)')
         label.button(for='photo') Choose new photo
         script(type="text/javascript").
